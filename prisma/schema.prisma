@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Users {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  bookings Bookings[]
+
+  @@map("users")
+}
+
+model Administrators {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("administrators")
+}
+
+model ScheduledSessions {
+  id         String   @id @default(uuid())
+  activityId String   @map("activity_id")
+  dayOfWeek  Int      @map("day_of_week")
+  startTime  String   @map("start_time")
+  capacity   Int
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  activities Activities @relation(fields: [activityId], references: [id])
+
+  @@map("scheduled_sessions")
+}
+
+model Bookings {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  sessionId String   @map("session_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  users    Users    @relation(fields: [userId], references: [id])
+  sessions Sessions @relation(fields: [sessionId], references: [id])
+
+  @@map("bookings")
+}
+
+model Sessions {
+  id            String   @id @default(uuid())
+  activityId    String   @map("activity_id")
+  startDateTime DateTime @map("start_date_time")
+  capacity      Int
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  activities Activities @relation(fields: [activityId], references: [id])
+  bookings   Bookings[]
+
+  @@map("sessions")
+}
+
+model Activities {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  imageUrl    String   @map("image_url")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  sessions          Sessions[]
+  scheduledSessions ScheduledSessions[]
+
+  @@map("activities")
+}

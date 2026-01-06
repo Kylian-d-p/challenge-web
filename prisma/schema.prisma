@@ -14,24 +14,25 @@ model Users {
   password  String
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+  role      UserRole @default(USER)
 
   bookings Bookings[]
+  sessions Sessions[]
 
   @@map("users")
 }
 
-model Administrators {
+model Sessions {
   id        String   @id @default(uuid())
-  email     String   @unique
-  name      String
-  password  String
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  userId    String   @map("user_id")
+  expiresAt DateTime @map("expires_at")
 
-  @@map("administrators")
+  users Users @relation(fields: [userId], references: [id])
+
+  @@map("sessions")
 }
 
-model ScheduledSessions {
+model ScheduledCourses {
   id         String   @id @default(uuid())
   activityId String   @map("activity_id")
   dayOfWeek  Int      @map("day_of_week")
@@ -42,23 +43,23 @@ model ScheduledSessions {
 
   activities Activities @relation(fields: [activityId], references: [id])
 
-  @@map("scheduled_sessions")
+  @@map("scheduled_courses")
 }
 
 model Bookings {
   id        String   @id @default(uuid())
   userId    String   @map("user_id")
-  sessionId String   @map("session_id")
+  courseId  String   @map("course_id")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  users    Users    @relation(fields: [userId], references: [id])
-  sessions Sessions @relation(fields: [sessionId], references: [id])
+  users   Users   @relation(fields: [userId], references: [id])
+  courses Courses @relation(fields: [courseId], references: [id])
 
   @@map("bookings")
 }
 
-model Sessions {
+model Courses {
   id            String   @id @default(uuid())
   activityId    String   @map("activity_id")
   startDateTime DateTime @map("start_date_time")
@@ -69,7 +70,7 @@ model Sessions {
   activities Activities @relation(fields: [activityId], references: [id])
   bookings   Bookings[]
 
-  @@map("sessions")
+  @@map("courses")
 }
 
 model Activities {
@@ -80,8 +81,13 @@ model Activities {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
-  sessions          Sessions[]
-  scheduledSessions ScheduledSessions[]
+  courses          Courses[]
+  scheduledCourses ScheduledCourses[]
 
   @@map("activities")
+}
+
+enum UserRole {
+  USER
+  ADMIN
 }

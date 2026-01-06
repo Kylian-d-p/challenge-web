@@ -190,8 +190,8 @@ export type ActivitiesWhereInput = {
   imageUrl?: Prisma.StringFilter<"Activities"> | string
   createdAt?: Prisma.DateTimeFilter<"Activities"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Activities"> | Date | string
-  sessions?: Prisma.SessionsListRelationFilter
-  scheduledSessions?: Prisma.ScheduledSessionsListRelationFilter
+  courses?: Prisma.CoursesListRelationFilter
+  scheduledCourses?: Prisma.ScheduledCoursesListRelationFilter
 }
 
 export type ActivitiesOrderByWithRelationInput = {
@@ -201,8 +201,8 @@ export type ActivitiesOrderByWithRelationInput = {
   imageUrl?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  sessions?: Prisma.SessionsOrderByRelationAggregateInput
-  scheduledSessions?: Prisma.ScheduledSessionsOrderByRelationAggregateInput
+  courses?: Prisma.CoursesOrderByRelationAggregateInput
+  scheduledCourses?: Prisma.ScheduledCoursesOrderByRelationAggregateInput
 }
 
 export type ActivitiesWhereUniqueInput = Prisma.AtLeast<{
@@ -215,8 +215,8 @@ export type ActivitiesWhereUniqueInput = Prisma.AtLeast<{
   imageUrl?: Prisma.StringFilter<"Activities"> | string
   createdAt?: Prisma.DateTimeFilter<"Activities"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Activities"> | Date | string
-  sessions?: Prisma.SessionsListRelationFilter
-  scheduledSessions?: Prisma.ScheduledSessionsListRelationFilter
+  courses?: Prisma.CoursesListRelationFilter
+  scheduledCourses?: Prisma.ScheduledCoursesListRelationFilter
 }, "id">
 
 export type ActivitiesOrderByWithAggregationInput = {
@@ -250,8 +250,8 @@ export type ActivitiesCreateInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  sessions?: Prisma.SessionsCreateNestedManyWithoutActivitiesInput
-  scheduledSessions?: Prisma.ScheduledSessionsCreateNestedManyWithoutActivitiesInput
+  courses?: Prisma.CoursesCreateNestedManyWithoutActivitiesInput
+  scheduledCourses?: Prisma.ScheduledCoursesCreateNestedManyWithoutActivitiesInput
 }
 
 export type ActivitiesUncheckedCreateInput = {
@@ -261,8 +261,8 @@ export type ActivitiesUncheckedCreateInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  sessions?: Prisma.SessionsUncheckedCreateNestedManyWithoutActivitiesInput
-  scheduledSessions?: Prisma.ScheduledSessionsUncheckedCreateNestedManyWithoutActivitiesInput
+  courses?: Prisma.CoursesUncheckedCreateNestedManyWithoutActivitiesInput
+  scheduledCourses?: Prisma.ScheduledCoursesUncheckedCreateNestedManyWithoutActivitiesInput
 }
 
 export type ActivitiesUpdateInput = {
@@ -272,8 +272,8 @@ export type ActivitiesUpdateInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sessions?: Prisma.SessionsUpdateManyWithoutActivitiesNestedInput
-  scheduledSessions?: Prisma.ScheduledSessionsUpdateManyWithoutActivitiesNestedInput
+  courses?: Prisma.CoursesUpdateManyWithoutActivitiesNestedInput
+  scheduledCourses?: Prisma.ScheduledCoursesUpdateManyWithoutActivitiesNestedInput
 }
 
 export type ActivitiesUncheckedUpdateInput = {
@@ -283,8 +283,8 @@ export type ActivitiesUncheckedUpdateInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sessions?: Prisma.SessionsUncheckedUpdateManyWithoutActivitiesNestedInput
-  scheduledSessions?: Prisma.ScheduledSessionsUncheckedUpdateManyWithoutActivitiesNestedInput
+  courses?: Prisma.CoursesUncheckedUpdateManyWithoutActivitiesNestedInput
+  scheduledCourses?: Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivitiesNestedInput
 }
 
 export type ActivitiesCreateManyInput = {
@@ -346,144 +346,144 @@ export type ActivitiesMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type ActivitiesCreateNestedOneWithoutScheduledSessionsInput = {
-  create?: Prisma.XOR<Prisma.ActivitiesCreateWithoutScheduledSessionsInput, Prisma.ActivitiesUncheckedCreateWithoutScheduledSessionsInput>
-  connectOrCreate?: Prisma.ActivitiesCreateOrConnectWithoutScheduledSessionsInput
+export type ActivitiesCreateNestedOneWithoutScheduledCoursesInput = {
+  create?: Prisma.XOR<Prisma.ActivitiesCreateWithoutScheduledCoursesInput, Prisma.ActivitiesUncheckedCreateWithoutScheduledCoursesInput>
+  connectOrCreate?: Prisma.ActivitiesCreateOrConnectWithoutScheduledCoursesInput
   connect?: Prisma.ActivitiesWhereUniqueInput
 }
 
-export type ActivitiesUpdateOneRequiredWithoutScheduledSessionsNestedInput = {
-  create?: Prisma.XOR<Prisma.ActivitiesCreateWithoutScheduledSessionsInput, Prisma.ActivitiesUncheckedCreateWithoutScheduledSessionsInput>
-  connectOrCreate?: Prisma.ActivitiesCreateOrConnectWithoutScheduledSessionsInput
-  upsert?: Prisma.ActivitiesUpsertWithoutScheduledSessionsInput
+export type ActivitiesUpdateOneRequiredWithoutScheduledCoursesNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivitiesCreateWithoutScheduledCoursesInput, Prisma.ActivitiesUncheckedCreateWithoutScheduledCoursesInput>
+  connectOrCreate?: Prisma.ActivitiesCreateOrConnectWithoutScheduledCoursesInput
+  upsert?: Prisma.ActivitiesUpsertWithoutScheduledCoursesInput
   connect?: Prisma.ActivitiesWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ActivitiesUpdateToOneWithWhereWithoutScheduledSessionsInput, Prisma.ActivitiesUpdateWithoutScheduledSessionsInput>, Prisma.ActivitiesUncheckedUpdateWithoutScheduledSessionsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ActivitiesUpdateToOneWithWhereWithoutScheduledCoursesInput, Prisma.ActivitiesUpdateWithoutScheduledCoursesInput>, Prisma.ActivitiesUncheckedUpdateWithoutScheduledCoursesInput>
 }
 
-export type ActivitiesCreateNestedOneWithoutSessionsInput = {
-  create?: Prisma.XOR<Prisma.ActivitiesCreateWithoutSessionsInput, Prisma.ActivitiesUncheckedCreateWithoutSessionsInput>
-  connectOrCreate?: Prisma.ActivitiesCreateOrConnectWithoutSessionsInput
+export type ActivitiesCreateNestedOneWithoutCoursesInput = {
+  create?: Prisma.XOR<Prisma.ActivitiesCreateWithoutCoursesInput, Prisma.ActivitiesUncheckedCreateWithoutCoursesInput>
+  connectOrCreate?: Prisma.ActivitiesCreateOrConnectWithoutCoursesInput
   connect?: Prisma.ActivitiesWhereUniqueInput
 }
 
-export type ActivitiesUpdateOneRequiredWithoutSessionsNestedInput = {
-  create?: Prisma.XOR<Prisma.ActivitiesCreateWithoutSessionsInput, Prisma.ActivitiesUncheckedCreateWithoutSessionsInput>
-  connectOrCreate?: Prisma.ActivitiesCreateOrConnectWithoutSessionsInput
-  upsert?: Prisma.ActivitiesUpsertWithoutSessionsInput
+export type ActivitiesUpdateOneRequiredWithoutCoursesNestedInput = {
+  create?: Prisma.XOR<Prisma.ActivitiesCreateWithoutCoursesInput, Prisma.ActivitiesUncheckedCreateWithoutCoursesInput>
+  connectOrCreate?: Prisma.ActivitiesCreateOrConnectWithoutCoursesInput
+  upsert?: Prisma.ActivitiesUpsertWithoutCoursesInput
   connect?: Prisma.ActivitiesWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ActivitiesUpdateToOneWithWhereWithoutSessionsInput, Prisma.ActivitiesUpdateWithoutSessionsInput>, Prisma.ActivitiesUncheckedUpdateWithoutSessionsInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ActivitiesUpdateToOneWithWhereWithoutCoursesInput, Prisma.ActivitiesUpdateWithoutCoursesInput>, Prisma.ActivitiesUncheckedUpdateWithoutCoursesInput>
 }
 
-export type ActivitiesCreateWithoutScheduledSessionsInput = {
+export type ActivitiesCreateWithoutScheduledCoursesInput = {
   id?: string
   name: string
   description: string
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  sessions?: Prisma.SessionsCreateNestedManyWithoutActivitiesInput
+  courses?: Prisma.CoursesCreateNestedManyWithoutActivitiesInput
 }
 
-export type ActivitiesUncheckedCreateWithoutScheduledSessionsInput = {
+export type ActivitiesUncheckedCreateWithoutScheduledCoursesInput = {
   id?: string
   name: string
   description: string
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  sessions?: Prisma.SessionsUncheckedCreateNestedManyWithoutActivitiesInput
+  courses?: Prisma.CoursesUncheckedCreateNestedManyWithoutActivitiesInput
 }
 
-export type ActivitiesCreateOrConnectWithoutScheduledSessionsInput = {
+export type ActivitiesCreateOrConnectWithoutScheduledCoursesInput = {
   where: Prisma.ActivitiesWhereUniqueInput
-  create: Prisma.XOR<Prisma.ActivitiesCreateWithoutScheduledSessionsInput, Prisma.ActivitiesUncheckedCreateWithoutScheduledSessionsInput>
+  create: Prisma.XOR<Prisma.ActivitiesCreateWithoutScheduledCoursesInput, Prisma.ActivitiesUncheckedCreateWithoutScheduledCoursesInput>
 }
 
-export type ActivitiesUpsertWithoutScheduledSessionsInput = {
-  update: Prisma.XOR<Prisma.ActivitiesUpdateWithoutScheduledSessionsInput, Prisma.ActivitiesUncheckedUpdateWithoutScheduledSessionsInput>
-  create: Prisma.XOR<Prisma.ActivitiesCreateWithoutScheduledSessionsInput, Prisma.ActivitiesUncheckedCreateWithoutScheduledSessionsInput>
+export type ActivitiesUpsertWithoutScheduledCoursesInput = {
+  update: Prisma.XOR<Prisma.ActivitiesUpdateWithoutScheduledCoursesInput, Prisma.ActivitiesUncheckedUpdateWithoutScheduledCoursesInput>
+  create: Prisma.XOR<Prisma.ActivitiesCreateWithoutScheduledCoursesInput, Prisma.ActivitiesUncheckedCreateWithoutScheduledCoursesInput>
   where?: Prisma.ActivitiesWhereInput
 }
 
-export type ActivitiesUpdateToOneWithWhereWithoutScheduledSessionsInput = {
+export type ActivitiesUpdateToOneWithWhereWithoutScheduledCoursesInput = {
   where?: Prisma.ActivitiesWhereInput
-  data: Prisma.XOR<Prisma.ActivitiesUpdateWithoutScheduledSessionsInput, Prisma.ActivitiesUncheckedUpdateWithoutScheduledSessionsInput>
+  data: Prisma.XOR<Prisma.ActivitiesUpdateWithoutScheduledCoursesInput, Prisma.ActivitiesUncheckedUpdateWithoutScheduledCoursesInput>
 }
 
-export type ActivitiesUpdateWithoutScheduledSessionsInput = {
+export type ActivitiesUpdateWithoutScheduledCoursesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sessions?: Prisma.SessionsUpdateManyWithoutActivitiesNestedInput
+  courses?: Prisma.CoursesUpdateManyWithoutActivitiesNestedInput
 }
 
-export type ActivitiesUncheckedUpdateWithoutScheduledSessionsInput = {
+export type ActivitiesUncheckedUpdateWithoutScheduledCoursesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  sessions?: Prisma.SessionsUncheckedUpdateManyWithoutActivitiesNestedInput
+  courses?: Prisma.CoursesUncheckedUpdateManyWithoutActivitiesNestedInput
 }
 
-export type ActivitiesCreateWithoutSessionsInput = {
+export type ActivitiesCreateWithoutCoursesInput = {
   id?: string
   name: string
   description: string
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  scheduledSessions?: Prisma.ScheduledSessionsCreateNestedManyWithoutActivitiesInput
+  scheduledCourses?: Prisma.ScheduledCoursesCreateNestedManyWithoutActivitiesInput
 }
 
-export type ActivitiesUncheckedCreateWithoutSessionsInput = {
+export type ActivitiesUncheckedCreateWithoutCoursesInput = {
   id?: string
   name: string
   description: string
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  scheduledSessions?: Prisma.ScheduledSessionsUncheckedCreateNestedManyWithoutActivitiesInput
+  scheduledCourses?: Prisma.ScheduledCoursesUncheckedCreateNestedManyWithoutActivitiesInput
 }
 
-export type ActivitiesCreateOrConnectWithoutSessionsInput = {
+export type ActivitiesCreateOrConnectWithoutCoursesInput = {
   where: Prisma.ActivitiesWhereUniqueInput
-  create: Prisma.XOR<Prisma.ActivitiesCreateWithoutSessionsInput, Prisma.ActivitiesUncheckedCreateWithoutSessionsInput>
+  create: Prisma.XOR<Prisma.ActivitiesCreateWithoutCoursesInput, Prisma.ActivitiesUncheckedCreateWithoutCoursesInput>
 }
 
-export type ActivitiesUpsertWithoutSessionsInput = {
-  update: Prisma.XOR<Prisma.ActivitiesUpdateWithoutSessionsInput, Prisma.ActivitiesUncheckedUpdateWithoutSessionsInput>
-  create: Prisma.XOR<Prisma.ActivitiesCreateWithoutSessionsInput, Prisma.ActivitiesUncheckedCreateWithoutSessionsInput>
+export type ActivitiesUpsertWithoutCoursesInput = {
+  update: Prisma.XOR<Prisma.ActivitiesUpdateWithoutCoursesInput, Prisma.ActivitiesUncheckedUpdateWithoutCoursesInput>
+  create: Prisma.XOR<Prisma.ActivitiesCreateWithoutCoursesInput, Prisma.ActivitiesUncheckedCreateWithoutCoursesInput>
   where?: Prisma.ActivitiesWhereInput
 }
 
-export type ActivitiesUpdateToOneWithWhereWithoutSessionsInput = {
+export type ActivitiesUpdateToOneWithWhereWithoutCoursesInput = {
   where?: Prisma.ActivitiesWhereInput
-  data: Prisma.XOR<Prisma.ActivitiesUpdateWithoutSessionsInput, Prisma.ActivitiesUncheckedUpdateWithoutSessionsInput>
+  data: Prisma.XOR<Prisma.ActivitiesUpdateWithoutCoursesInput, Prisma.ActivitiesUncheckedUpdateWithoutCoursesInput>
 }
 
-export type ActivitiesUpdateWithoutSessionsInput = {
+export type ActivitiesUpdateWithoutCoursesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  scheduledSessions?: Prisma.ScheduledSessionsUpdateManyWithoutActivitiesNestedInput
+  scheduledCourses?: Prisma.ScheduledCoursesUpdateManyWithoutActivitiesNestedInput
 }
 
-export type ActivitiesUncheckedUpdateWithoutSessionsInput = {
+export type ActivitiesUncheckedUpdateWithoutCoursesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  scheduledSessions?: Prisma.ScheduledSessionsUncheckedUpdateManyWithoutActivitiesNestedInput
+  scheduledCourses?: Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivitiesNestedInput
 }
 
 
@@ -492,13 +492,13 @@ export type ActivitiesUncheckedUpdateWithoutSessionsInput = {
  */
 
 export type ActivitiesCountOutputType = {
-  sessions: number
-  scheduledSessions: number
+  courses: number
+  scheduledCourses: number
 }
 
 export type ActivitiesCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sessions?: boolean | ActivitiesCountOutputTypeCountSessionsArgs
-  scheduledSessions?: boolean | ActivitiesCountOutputTypeCountScheduledSessionsArgs
+  courses?: boolean | ActivitiesCountOutputTypeCountCoursesArgs
+  scheduledCourses?: boolean | ActivitiesCountOutputTypeCountScheduledCoursesArgs
 }
 
 /**
@@ -514,15 +514,15 @@ export type ActivitiesCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.E
 /**
  * ActivitiesCountOutputType without action
  */
-export type ActivitiesCountOutputTypeCountSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.SessionsWhereInput
+export type ActivitiesCountOutputTypeCountCoursesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.CoursesWhereInput
 }
 
 /**
  * ActivitiesCountOutputType without action
  */
-export type ActivitiesCountOutputTypeCountScheduledSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ScheduledSessionsWhereInput
+export type ActivitiesCountOutputTypeCountScheduledCoursesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ScheduledCoursesWhereInput
 }
 
 
@@ -533,8 +533,8 @@ export type ActivitiesSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   imageUrl?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  sessions?: boolean | Prisma.Activities$sessionsArgs<ExtArgs>
-  scheduledSessions?: boolean | Prisma.Activities$scheduledSessionsArgs<ExtArgs>
+  courses?: boolean | Prisma.Activities$coursesArgs<ExtArgs>
+  scheduledCourses?: boolean | Prisma.Activities$scheduledCoursesArgs<ExtArgs>
   _count?: boolean | Prisma.ActivitiesCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["activities"]>
 
@@ -567,8 +567,8 @@ export type ActivitiesSelectScalar = {
 
 export type ActivitiesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["activities"]>
 export type ActivitiesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  sessions?: boolean | Prisma.Activities$sessionsArgs<ExtArgs>
-  scheduledSessions?: boolean | Prisma.Activities$scheduledSessionsArgs<ExtArgs>
+  courses?: boolean | Prisma.Activities$coursesArgs<ExtArgs>
+  scheduledCourses?: boolean | Prisma.Activities$scheduledCoursesArgs<ExtArgs>
   _count?: boolean | Prisma.ActivitiesCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ActivitiesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -577,8 +577,8 @@ export type ActivitiesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 export type $ActivitiesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Activities"
   objects: {
-    sessions: Prisma.$SessionsPayload<ExtArgs>[]
-    scheduledSessions: Prisma.$ScheduledSessionsPayload<ExtArgs>[]
+    courses: Prisma.$CoursesPayload<ExtArgs>[]
+    scheduledCourses: Prisma.$ScheduledCoursesPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -981,8 +981,8 @@ readonly fields: ActivitiesFieldRefs;
  */
 export interface Prisma__ActivitiesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  sessions<T extends Prisma.Activities$sessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Activities$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  scheduledSessions<T extends Prisma.Activities$scheduledSessionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Activities$scheduledSessionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ScheduledSessionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  courses<T extends Prisma.Activities$coursesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Activities$coursesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CoursesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  scheduledCourses<T extends Prisma.Activities$scheduledCoursesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Activities$scheduledCoursesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ScheduledCoursesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1406,51 +1406,51 @@ export type ActivitiesDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.In
 }
 
 /**
- * Activities.sessions
+ * Activities.courses
  */
-export type Activities$sessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Activities$coursesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Sessions
+   * Select specific fields to fetch from the Courses
    */
-  select?: Prisma.SessionsSelect<ExtArgs> | null
+  select?: Prisma.CoursesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Sessions
+   * Omit specific fields from the Courses
    */
-  omit?: Prisma.SessionsOmit<ExtArgs> | null
+  omit?: Prisma.CoursesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.SessionsInclude<ExtArgs> | null
-  where?: Prisma.SessionsWhereInput
-  orderBy?: Prisma.SessionsOrderByWithRelationInput | Prisma.SessionsOrderByWithRelationInput[]
-  cursor?: Prisma.SessionsWhereUniqueInput
+  include?: Prisma.CoursesInclude<ExtArgs> | null
+  where?: Prisma.CoursesWhereInput
+  orderBy?: Prisma.CoursesOrderByWithRelationInput | Prisma.CoursesOrderByWithRelationInput[]
+  cursor?: Prisma.CoursesWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.SessionsScalarFieldEnum | Prisma.SessionsScalarFieldEnum[]
+  distinct?: Prisma.CoursesScalarFieldEnum | Prisma.CoursesScalarFieldEnum[]
 }
 
 /**
- * Activities.scheduledSessions
+ * Activities.scheduledCourses
  */
-export type Activities$scheduledSessionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Activities$scheduledCoursesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the ScheduledSessions
+   * Select specific fields to fetch from the ScheduledCourses
    */
-  select?: Prisma.ScheduledSessionsSelect<ExtArgs> | null
+  select?: Prisma.ScheduledCoursesSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the ScheduledSessions
+   * Omit specific fields from the ScheduledCourses
    */
-  omit?: Prisma.ScheduledSessionsOmit<ExtArgs> | null
+  omit?: Prisma.ScheduledCoursesOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.ScheduledSessionsInclude<ExtArgs> | null
-  where?: Prisma.ScheduledSessionsWhereInput
-  orderBy?: Prisma.ScheduledSessionsOrderByWithRelationInput | Prisma.ScheduledSessionsOrderByWithRelationInput[]
-  cursor?: Prisma.ScheduledSessionsWhereUniqueInput
+  include?: Prisma.ScheduledCoursesInclude<ExtArgs> | null
+  where?: Prisma.ScheduledCoursesWhereInput
+  orderBy?: Prisma.ScheduledCoursesOrderByWithRelationInput | Prisma.ScheduledCoursesOrderByWithRelationInput[]
+  cursor?: Prisma.ScheduledCoursesWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.ScheduledSessionsScalarFieldEnum | Prisma.ScheduledSessionsScalarFieldEnum[]
+  distinct?: Prisma.ScheduledCoursesScalarFieldEnum | Prisma.ScheduledCoursesScalarFieldEnum[]
 }
 
 /**

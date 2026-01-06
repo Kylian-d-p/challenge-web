@@ -9,9 +9,9 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Users'
-export type * from './models/Administrators'
-export type * from './models/ScheduledSessions'
-export type * from './models/Bookings'
 export type * from './models/Sessions'
+export type * from './models/ScheduledCourses'
+export type * from './models/Bookings'
+export type * from './models/Courses'
 export type * from './models/Activities'
 export type * from './commonInputTypes'

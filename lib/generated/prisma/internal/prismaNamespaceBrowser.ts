@@ -52,10 +52,10 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Users: 'Users',
-  Administrators: 'Administrators',
-  ScheduledSessions: 'ScheduledSessions',
-  Bookings: 'Bookings',
   Sessions: 'Sessions',
+  ScheduledCourses: 'ScheduledCourses',
+  Bookings: 'Bookings',
+  Courses: 'Courses',
   Activities: 'Activities'
 } as const
 
@@ -81,25 +81,23 @@ export const UsersScalarFieldEnum = {
   name: 'name',
   password: 'password',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  role: 'role'
 } as const
 
 export type UsersScalarFieldEnum = (typeof UsersScalarFieldEnum)[keyof typeof UsersScalarFieldEnum]
 
 
-export const AdministratorsScalarFieldEnum = {
+export const SessionsScalarFieldEnum = {
   id: 'id',
-  email: 'email',
-  name: 'name',
-  password: 'password',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  userId: 'userId',
+  expiresAt: 'expiresAt'
 } as const
 
-export type AdministratorsScalarFieldEnum = (typeof AdministratorsScalarFieldEnum)[keyof typeof AdministratorsScalarFieldEnum]
+export type SessionsScalarFieldEnum = (typeof SessionsScalarFieldEnum)[keyof typeof SessionsScalarFieldEnum]
 
 
-export const ScheduledSessionsScalarFieldEnum = {
+export const ScheduledCoursesScalarFieldEnum = {
   id: 'id',
   activityId: 'activityId',
   dayOfWeek: 'dayOfWeek',
@@ -109,13 +107,13 @@ export const ScheduledSessionsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 } as const
 
-export type ScheduledSessionsScalarFieldEnum = (typeof ScheduledSessionsScalarFieldEnum)[keyof typeof ScheduledSessionsScalarFieldEnum]
+export type ScheduledCoursesScalarFieldEnum = (typeof ScheduledCoursesScalarFieldEnum)[keyof typeof ScheduledCoursesScalarFieldEnum]
 
 
 export const BookingsScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  sessionId: 'sessionId',
+  courseId: 'courseId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -123,7 +121,7 @@ export const BookingsScalarFieldEnum = {
 export type BookingsScalarFieldEnum = (typeof BookingsScalarFieldEnum)[keyof typeof BookingsScalarFieldEnum]
 
 
-export const SessionsScalarFieldEnum = {
+export const CoursesScalarFieldEnum = {
   id: 'id',
   activityId: 'activityId',
   startDateTime: 'startDateTime',
@@ -132,7 +130,7 @@ export const SessionsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 } as const
 
-export type SessionsScalarFieldEnum = (typeof SessionsScalarFieldEnum)[keyof typeof SessionsScalarFieldEnum]
+export type CoursesScalarFieldEnum = (typeof CoursesScalarFieldEnum)[keyof typeof CoursesScalarFieldEnum]
 
 
 export const ActivitiesScalarFieldEnum = {

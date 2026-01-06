@@ -45,25 +45,25 @@ export { Prisma }
  */
 export type Users = Prisma.UsersModel
 /**
- * Model Administrators
+ * Model Sessions
  * 
  */
-export type Administrators = Prisma.AdministratorsModel
+export type Sessions = Prisma.SessionsModel
 /**
- * Model ScheduledSessions
+ * Model ScheduledCourses
  * 
  */
-export type ScheduledSessions = Prisma.ScheduledSessionsModel
+export type ScheduledCourses = Prisma.ScheduledCoursesModel
 /**
  * Model Bookings
  * 
  */
 export type Bookings = Prisma.BookingsModel
 /**
- * Model Sessions
+ * Model Courses
  * 
  */
-export type Sessions = Prisma.SessionsModel
+export type Courses = Prisma.CoursesModel
 /**
  * Model Activities
  * 

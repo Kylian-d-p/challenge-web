@@ -19,8 +19,10 @@ export default function LoginPage() {
           <LoginForm />
           <p className="text-center mt-4">
             <span className="text-muted-foreground">Pas encore de compte ? </span>
-            <Link href="/auth/register">
-              <Button variant={"link"} size={"text"}>S&apos;inscrire</Button>
+            <Link href="/auth/signup">
+              <Button variant={"link"} size={"text"}>
+                S&apos;inscrire
+              </Button>
             </Link>
           </p>
         </CardContent>

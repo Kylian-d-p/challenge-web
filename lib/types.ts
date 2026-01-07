@@ -17,4 +17,20 @@ export const formSchemas = {
     email: types.email,
     password: types.password,
   }),
+  signup: z
+    .object({
+      name: z.string().min(2, "Le nom doit contenir au moins 2 caractères").max(100, "Le nom ne peut pas contenir plus de 100 caractères"),
+      email: types.email,
+      password: types.password,
+      passwordc: types.password,
+    })
+    .superRefine(({ password, passwordc }, ctx) => {
+      if (password !== passwordc) {
+        ctx.addIssue({
+          code: "custom",
+          message: "Les mots de passe ne correspondent pas",
+          path: ["passwordc"],
+        });
+      }
+    }),
 };

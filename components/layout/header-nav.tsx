@@ -53,14 +53,14 @@ export default function HeaderNav(props: { user?: { name: string } }) {
         : [
             {
               title: "Connexion",
-              href: "/login",
+              href: "/auth/login",
             },
           ]),
     ],
     [pathname, props.user]
   );
 
-  return (
+  let content = (
     <>
       <Sheet>
         <SheetTrigger asChild>
@@ -101,4 +101,6 @@ export default function HeaderNav(props: { user?: { name: string } }) {
       </nav>
     </>
   );
+
+  return content;
 }

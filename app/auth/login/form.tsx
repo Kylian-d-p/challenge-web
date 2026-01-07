@@ -22,7 +22,6 @@ export default function LoginForm() {
   const onSubmit = async (values: z.infer<typeof formSchemas.login>) => {
     const res = await loginAction(values);
 
-    console.log(res);
     if (res.serverError) {
       toast.error(res.serverError.message);
       return;

@@ -27,7 +27,7 @@ model Sessions {
   userId    String   @map("user_id")
   expiresAt DateTime @map("expires_at")
 
-  users Users @relation(fields: [userId], references: [id])
+  user Users @relation(fields: [userId], references: [id])
 
   @@map("sessions")
 }
@@ -41,7 +41,7 @@ model ScheduledCourses {
   createdAt  DateTime @default(now()) @map("created_at")
   updatedAt  DateTime @updatedAt @map("updated_at")
 
-  activities Activities @relation(fields: [activityId], references: [id])
+  activity Activities @relation(fields: [activityId], references: [id])
 
   @@map("scheduled_courses")
 }
@@ -53,8 +53,8 @@ model Bookings {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  users   Users   @relation(fields: [userId], references: [id])
-  courses Courses @relation(fields: [courseId], references: [id])
+  user   Users   @relation(fields: [userId], references: [id])
+  course Courses @relation(fields: [courseId], references: [id])
 
   @@map("bookings")
 }
@@ -67,8 +67,8 @@ model Courses {
   createdAt     DateTime @default(now()) @map("created_at")
   updatedAt     DateTime @updatedAt @map("updated_at")
 
-  activities Activities @relation(fields: [activityId], references: [id])
-  bookings   Bookings[]
+  activity Activities @relation(fields: [activityId], references: [id])
+  bookings Bookings[]
 
   @@map("courses")
 }

@@ -1,6 +1,6 @@
+import prisma from "@/lib/prisma";
 import { sha256 } from "@oslojs/crypto/sha2";
 import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from "@oslojs/encoding";
-import prisma from "@/lib/prisma";
 
 import type { Sessions, Users } from "@/lib/generated/prisma/client";
 import { cookies } from "next/headers";
@@ -30,7 +30,7 @@ async function validateSessionToken(token: string): Promise<SessionValidationRes
       id: sessionId,
     },
     include: {
-      users: true,
+      user: true,
     },
   });
   if (result === null) {

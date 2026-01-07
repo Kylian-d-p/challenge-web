@@ -250,8 +250,8 @@ export type ActivitiesCreateInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  courses?: Prisma.CoursesCreateNestedManyWithoutActivitiesInput
-  scheduledCourses?: Prisma.ScheduledCoursesCreateNestedManyWithoutActivitiesInput
+  courses?: Prisma.CoursesCreateNestedManyWithoutActivityInput
+  scheduledCourses?: Prisma.ScheduledCoursesCreateNestedManyWithoutActivityInput
 }
 
 export type ActivitiesUncheckedCreateInput = {
@@ -261,8 +261,8 @@ export type ActivitiesUncheckedCreateInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  courses?: Prisma.CoursesUncheckedCreateNestedManyWithoutActivitiesInput
-  scheduledCourses?: Prisma.ScheduledCoursesUncheckedCreateNestedManyWithoutActivitiesInput
+  courses?: Prisma.CoursesUncheckedCreateNestedManyWithoutActivityInput
+  scheduledCourses?: Prisma.ScheduledCoursesUncheckedCreateNestedManyWithoutActivityInput
 }
 
 export type ActivitiesUpdateInput = {
@@ -272,8 +272,8 @@ export type ActivitiesUpdateInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  courses?: Prisma.CoursesUpdateManyWithoutActivitiesNestedInput
-  scheduledCourses?: Prisma.ScheduledCoursesUpdateManyWithoutActivitiesNestedInput
+  courses?: Prisma.CoursesUpdateManyWithoutActivityNestedInput
+  scheduledCourses?: Prisma.ScheduledCoursesUpdateManyWithoutActivityNestedInput
 }
 
 export type ActivitiesUncheckedUpdateInput = {
@@ -283,8 +283,8 @@ export type ActivitiesUncheckedUpdateInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  courses?: Prisma.CoursesUncheckedUpdateManyWithoutActivitiesNestedInput
-  scheduledCourses?: Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivitiesNestedInput
+  courses?: Prisma.CoursesUncheckedUpdateManyWithoutActivityNestedInput
+  scheduledCourses?: Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivityNestedInput
 }
 
 export type ActivitiesCreateManyInput = {
@@ -381,7 +381,7 @@ export type ActivitiesCreateWithoutScheduledCoursesInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  courses?: Prisma.CoursesCreateNestedManyWithoutActivitiesInput
+  courses?: Prisma.CoursesCreateNestedManyWithoutActivityInput
 }
 
 export type ActivitiesUncheckedCreateWithoutScheduledCoursesInput = {
@@ -391,7 +391,7 @@ export type ActivitiesUncheckedCreateWithoutScheduledCoursesInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  courses?: Prisma.CoursesUncheckedCreateNestedManyWithoutActivitiesInput
+  courses?: Prisma.CoursesUncheckedCreateNestedManyWithoutActivityInput
 }
 
 export type ActivitiesCreateOrConnectWithoutScheduledCoursesInput = {
@@ -417,7 +417,7 @@ export type ActivitiesUpdateWithoutScheduledCoursesInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  courses?: Prisma.CoursesUpdateManyWithoutActivitiesNestedInput
+  courses?: Prisma.CoursesUpdateManyWithoutActivityNestedInput
 }
 
 export type ActivitiesUncheckedUpdateWithoutScheduledCoursesInput = {
@@ -427,7 +427,7 @@ export type ActivitiesUncheckedUpdateWithoutScheduledCoursesInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  courses?: Prisma.CoursesUncheckedUpdateManyWithoutActivitiesNestedInput
+  courses?: Prisma.CoursesUncheckedUpdateManyWithoutActivityNestedInput
 }
 
 export type ActivitiesCreateWithoutCoursesInput = {
@@ -437,7 +437,7 @@ export type ActivitiesCreateWithoutCoursesInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  scheduledCourses?: Prisma.ScheduledCoursesCreateNestedManyWithoutActivitiesInput
+  scheduledCourses?: Prisma.ScheduledCoursesCreateNestedManyWithoutActivityInput
 }
 
 export type ActivitiesUncheckedCreateWithoutCoursesInput = {
@@ -447,7 +447,7 @@ export type ActivitiesUncheckedCreateWithoutCoursesInput = {
   imageUrl: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  scheduledCourses?: Prisma.ScheduledCoursesUncheckedCreateNestedManyWithoutActivitiesInput
+  scheduledCourses?: Prisma.ScheduledCoursesUncheckedCreateNestedManyWithoutActivityInput
 }
 
 export type ActivitiesCreateOrConnectWithoutCoursesInput = {
@@ -473,7 +473,7 @@ export type ActivitiesUpdateWithoutCoursesInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  scheduledCourses?: Prisma.ScheduledCoursesUpdateManyWithoutActivitiesNestedInput
+  scheduledCourses?: Prisma.ScheduledCoursesUpdateManyWithoutActivityNestedInput
 }
 
 export type ActivitiesUncheckedUpdateWithoutCoursesInput = {
@@ -483,7 +483,7 @@ export type ActivitiesUncheckedUpdateWithoutCoursesInput = {
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  scheduledCourses?: Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivitiesNestedInput
+  scheduledCourses?: Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivityNestedInput
 }
 
 

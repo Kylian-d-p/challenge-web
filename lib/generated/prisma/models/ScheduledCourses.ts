@@ -236,7 +236,7 @@ export type ScheduledCoursesWhereInput = {
   capacity?: Prisma.IntFilter<"ScheduledCourses"> | number
   createdAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
-  activities?: Prisma.XOR<Prisma.ActivitiesScalarRelationFilter, Prisma.ActivitiesWhereInput>
+  activity?: Prisma.XOR<Prisma.ActivitiesScalarRelationFilter, Prisma.ActivitiesWhereInput>
 }
 
 export type ScheduledCoursesOrderByWithRelationInput = {
@@ -247,7 +247,7 @@ export type ScheduledCoursesOrderByWithRelationInput = {
   capacity?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  activities?: Prisma.ActivitiesOrderByWithRelationInput
+  activity?: Prisma.ActivitiesOrderByWithRelationInput
 }
 
 export type ScheduledCoursesWhereUniqueInput = Prisma.AtLeast<{
@@ -261,7 +261,7 @@ export type ScheduledCoursesWhereUniqueInput = Prisma.AtLeast<{
   capacity?: Prisma.IntFilter<"ScheduledCourses"> | number
   createdAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
-  activities?: Prisma.XOR<Prisma.ActivitiesScalarRelationFilter, Prisma.ActivitiesWhereInput>
+  activity?: Prisma.XOR<Prisma.ActivitiesScalarRelationFilter, Prisma.ActivitiesWhereInput>
 }, "id">
 
 export type ScheduledCoursesOrderByWithAggregationInput = {
@@ -299,7 +299,7 @@ export type ScheduledCoursesCreateInput = {
   capacity: number
   createdAt?: Date | string
   updatedAt?: Date | string
-  activities: Prisma.ActivitiesCreateNestedOneWithoutScheduledCoursesInput
+  activity: Prisma.ActivitiesCreateNestedOneWithoutScheduledCoursesInput
 }
 
 export type ScheduledCoursesUncheckedCreateInput = {
@@ -319,7 +319,7 @@ export type ScheduledCoursesUpdateInput = {
   capacity?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  activities?: Prisma.ActivitiesUpdateOneRequiredWithoutScheduledCoursesNestedInput
+  activity?: Prisma.ActivitiesUpdateOneRequiredWithoutScheduledCoursesNestedInput
 }
 
 export type ScheduledCoursesUncheckedUpdateInput = {
@@ -419,49 +419,49 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type ScheduledCoursesCreateNestedManyWithoutActivitiesInput = {
-  create?: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivitiesInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput> | Prisma.ScheduledCoursesCreateWithoutActivitiesInput[] | Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput[]
-  connectOrCreate?: Prisma.ScheduledCoursesCreateOrConnectWithoutActivitiesInput | Prisma.ScheduledCoursesCreateOrConnectWithoutActivitiesInput[]
-  createMany?: Prisma.ScheduledCoursesCreateManyActivitiesInputEnvelope
+export type ScheduledCoursesCreateNestedManyWithoutActivityInput = {
+  create?: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivityInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput> | Prisma.ScheduledCoursesCreateWithoutActivityInput[] | Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput[]
+  connectOrCreate?: Prisma.ScheduledCoursesCreateOrConnectWithoutActivityInput | Prisma.ScheduledCoursesCreateOrConnectWithoutActivityInput[]
+  createMany?: Prisma.ScheduledCoursesCreateManyActivityInputEnvelope
   connect?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
 }
 
-export type ScheduledCoursesUncheckedCreateNestedManyWithoutActivitiesInput = {
-  create?: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivitiesInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput> | Prisma.ScheduledCoursesCreateWithoutActivitiesInput[] | Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput[]
-  connectOrCreate?: Prisma.ScheduledCoursesCreateOrConnectWithoutActivitiesInput | Prisma.ScheduledCoursesCreateOrConnectWithoutActivitiesInput[]
-  createMany?: Prisma.ScheduledCoursesCreateManyActivitiesInputEnvelope
+export type ScheduledCoursesUncheckedCreateNestedManyWithoutActivityInput = {
+  create?: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivityInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput> | Prisma.ScheduledCoursesCreateWithoutActivityInput[] | Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput[]
+  connectOrCreate?: Prisma.ScheduledCoursesCreateOrConnectWithoutActivityInput | Prisma.ScheduledCoursesCreateOrConnectWithoutActivityInput[]
+  createMany?: Prisma.ScheduledCoursesCreateManyActivityInputEnvelope
   connect?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
 }
 
-export type ScheduledCoursesUpdateManyWithoutActivitiesNestedInput = {
-  create?: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivitiesInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput> | Prisma.ScheduledCoursesCreateWithoutActivitiesInput[] | Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput[]
-  connectOrCreate?: Prisma.ScheduledCoursesCreateOrConnectWithoutActivitiesInput | Prisma.ScheduledCoursesCreateOrConnectWithoutActivitiesInput[]
-  upsert?: Prisma.ScheduledCoursesUpsertWithWhereUniqueWithoutActivitiesInput | Prisma.ScheduledCoursesUpsertWithWhereUniqueWithoutActivitiesInput[]
-  createMany?: Prisma.ScheduledCoursesCreateManyActivitiesInputEnvelope
+export type ScheduledCoursesUpdateManyWithoutActivityNestedInput = {
+  create?: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivityInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput> | Prisma.ScheduledCoursesCreateWithoutActivityInput[] | Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput[]
+  connectOrCreate?: Prisma.ScheduledCoursesCreateOrConnectWithoutActivityInput | Prisma.ScheduledCoursesCreateOrConnectWithoutActivityInput[]
+  upsert?: Prisma.ScheduledCoursesUpsertWithWhereUniqueWithoutActivityInput | Prisma.ScheduledCoursesUpsertWithWhereUniqueWithoutActivityInput[]
+  createMany?: Prisma.ScheduledCoursesCreateManyActivityInputEnvelope
   set?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
   disconnect?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
   delete?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
   connect?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
-  update?: Prisma.ScheduledCoursesUpdateWithWhereUniqueWithoutActivitiesInput | Prisma.ScheduledCoursesUpdateWithWhereUniqueWithoutActivitiesInput[]
-  updateMany?: Prisma.ScheduledCoursesUpdateManyWithWhereWithoutActivitiesInput | Prisma.ScheduledCoursesUpdateManyWithWhereWithoutActivitiesInput[]
+  update?: Prisma.ScheduledCoursesUpdateWithWhereUniqueWithoutActivityInput | Prisma.ScheduledCoursesUpdateWithWhereUniqueWithoutActivityInput[]
+  updateMany?: Prisma.ScheduledCoursesUpdateManyWithWhereWithoutActivityInput | Prisma.ScheduledCoursesUpdateManyWithWhereWithoutActivityInput[]
   deleteMany?: Prisma.ScheduledCoursesScalarWhereInput | Prisma.ScheduledCoursesScalarWhereInput[]
 }
 
-export type ScheduledCoursesUncheckedUpdateManyWithoutActivitiesNestedInput = {
-  create?: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivitiesInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput> | Prisma.ScheduledCoursesCreateWithoutActivitiesInput[] | Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput[]
-  connectOrCreate?: Prisma.ScheduledCoursesCreateOrConnectWithoutActivitiesInput | Prisma.ScheduledCoursesCreateOrConnectWithoutActivitiesInput[]
-  upsert?: Prisma.ScheduledCoursesUpsertWithWhereUniqueWithoutActivitiesInput | Prisma.ScheduledCoursesUpsertWithWhereUniqueWithoutActivitiesInput[]
-  createMany?: Prisma.ScheduledCoursesCreateManyActivitiesInputEnvelope
+export type ScheduledCoursesUncheckedUpdateManyWithoutActivityNestedInput = {
+  create?: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivityInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput> | Prisma.ScheduledCoursesCreateWithoutActivityInput[] | Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput[]
+  connectOrCreate?: Prisma.ScheduledCoursesCreateOrConnectWithoutActivityInput | Prisma.ScheduledCoursesCreateOrConnectWithoutActivityInput[]
+  upsert?: Prisma.ScheduledCoursesUpsertWithWhereUniqueWithoutActivityInput | Prisma.ScheduledCoursesUpsertWithWhereUniqueWithoutActivityInput[]
+  createMany?: Prisma.ScheduledCoursesCreateManyActivityInputEnvelope
   set?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
   disconnect?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
   delete?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
   connect?: Prisma.ScheduledCoursesWhereUniqueInput | Prisma.ScheduledCoursesWhereUniqueInput[]
-  update?: Prisma.ScheduledCoursesUpdateWithWhereUniqueWithoutActivitiesInput | Prisma.ScheduledCoursesUpdateWithWhereUniqueWithoutActivitiesInput[]
-  updateMany?: Prisma.ScheduledCoursesUpdateManyWithWhereWithoutActivitiesInput | Prisma.ScheduledCoursesUpdateManyWithWhereWithoutActivitiesInput[]
+  update?: Prisma.ScheduledCoursesUpdateWithWhereUniqueWithoutActivityInput | Prisma.ScheduledCoursesUpdateWithWhereUniqueWithoutActivityInput[]
+  updateMany?: Prisma.ScheduledCoursesUpdateManyWithWhereWithoutActivityInput | Prisma.ScheduledCoursesUpdateManyWithWhereWithoutActivityInput[]
   deleteMany?: Prisma.ScheduledCoursesScalarWhereInput | Prisma.ScheduledCoursesScalarWhereInput[]
 }
 
-export type ScheduledCoursesCreateWithoutActivitiesInput = {
+export type ScheduledCoursesCreateWithoutActivityInput = {
   id?: string
   dayOfWeek: number
   startTime: string
@@ -470,7 +470,7 @@ export type ScheduledCoursesCreateWithoutActivitiesInput = {
   updatedAt?: Date | string
 }
 
-export type ScheduledCoursesUncheckedCreateWithoutActivitiesInput = {
+export type ScheduledCoursesUncheckedCreateWithoutActivityInput = {
   id?: string
   dayOfWeek: number
   startTime: string
@@ -479,30 +479,30 @@ export type ScheduledCoursesUncheckedCreateWithoutActivitiesInput = {
   updatedAt?: Date | string
 }
 
-export type ScheduledCoursesCreateOrConnectWithoutActivitiesInput = {
+export type ScheduledCoursesCreateOrConnectWithoutActivityInput = {
   where: Prisma.ScheduledCoursesWhereUniqueInput
-  create: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivitiesInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput>
+  create: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivityInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput>
 }
 
-export type ScheduledCoursesCreateManyActivitiesInputEnvelope = {
-  data: Prisma.ScheduledCoursesCreateManyActivitiesInput | Prisma.ScheduledCoursesCreateManyActivitiesInput[]
+export type ScheduledCoursesCreateManyActivityInputEnvelope = {
+  data: Prisma.ScheduledCoursesCreateManyActivityInput | Prisma.ScheduledCoursesCreateManyActivityInput[]
   skipDuplicates?: boolean
 }
 
-export type ScheduledCoursesUpsertWithWhereUniqueWithoutActivitiesInput = {
+export type ScheduledCoursesUpsertWithWhereUniqueWithoutActivityInput = {
   where: Prisma.ScheduledCoursesWhereUniqueInput
-  update: Prisma.XOR<Prisma.ScheduledCoursesUpdateWithoutActivitiesInput, Prisma.ScheduledCoursesUncheckedUpdateWithoutActivitiesInput>
-  create: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivitiesInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivitiesInput>
+  update: Prisma.XOR<Prisma.ScheduledCoursesUpdateWithoutActivityInput, Prisma.ScheduledCoursesUncheckedUpdateWithoutActivityInput>
+  create: Prisma.XOR<Prisma.ScheduledCoursesCreateWithoutActivityInput, Prisma.ScheduledCoursesUncheckedCreateWithoutActivityInput>
 }
 
-export type ScheduledCoursesUpdateWithWhereUniqueWithoutActivitiesInput = {
+export type ScheduledCoursesUpdateWithWhereUniqueWithoutActivityInput = {
   where: Prisma.ScheduledCoursesWhereUniqueInput
-  data: Prisma.XOR<Prisma.ScheduledCoursesUpdateWithoutActivitiesInput, Prisma.ScheduledCoursesUncheckedUpdateWithoutActivitiesInput>
+  data: Prisma.XOR<Prisma.ScheduledCoursesUpdateWithoutActivityInput, Prisma.ScheduledCoursesUncheckedUpdateWithoutActivityInput>
 }
 
-export type ScheduledCoursesUpdateManyWithWhereWithoutActivitiesInput = {
+export type ScheduledCoursesUpdateManyWithWhereWithoutActivityInput = {
   where: Prisma.ScheduledCoursesScalarWhereInput
-  data: Prisma.XOR<Prisma.ScheduledCoursesUpdateManyMutationInput, Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivitiesInput>
+  data: Prisma.XOR<Prisma.ScheduledCoursesUpdateManyMutationInput, Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivityInput>
 }
 
 export type ScheduledCoursesScalarWhereInput = {
@@ -518,7 +518,7 @@ export type ScheduledCoursesScalarWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
 }
 
-export type ScheduledCoursesCreateManyActivitiesInput = {
+export type ScheduledCoursesCreateManyActivityInput = {
   id?: string
   dayOfWeek: number
   startTime: string
@@ -527,7 +527,7 @@ export type ScheduledCoursesCreateManyActivitiesInput = {
   updatedAt?: Date | string
 }
 
-export type ScheduledCoursesUpdateWithoutActivitiesInput = {
+export type ScheduledCoursesUpdateWithoutActivityInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   startTime?: Prisma.StringFieldUpdateOperationsInput | string
@@ -536,7 +536,7 @@ export type ScheduledCoursesUpdateWithoutActivitiesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ScheduledCoursesUncheckedUpdateWithoutActivitiesInput = {
+export type ScheduledCoursesUncheckedUpdateWithoutActivityInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   startTime?: Prisma.StringFieldUpdateOperationsInput | string
@@ -545,7 +545,7 @@ export type ScheduledCoursesUncheckedUpdateWithoutActivitiesInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ScheduledCoursesUncheckedUpdateManyWithoutActivitiesInput = {
+export type ScheduledCoursesUncheckedUpdateManyWithoutActivityInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   startTime?: Prisma.StringFieldUpdateOperationsInput | string
@@ -564,7 +564,7 @@ export type ScheduledCoursesSelect<ExtArgs extends runtime.Types.Extensions.Inte
   capacity?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  activities?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
+  activity?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["scheduledCourses"]>
 
 export type ScheduledCoursesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -575,7 +575,7 @@ export type ScheduledCoursesSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   capacity?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  activities?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
+  activity?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["scheduledCourses"]>
 
 export type ScheduledCoursesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -586,7 +586,7 @@ export type ScheduledCoursesSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   capacity?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  activities?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
+  activity?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["scheduledCourses"]>
 
 export type ScheduledCoursesSelectScalar = {
@@ -601,19 +601,19 @@ export type ScheduledCoursesSelectScalar = {
 
 export type ScheduledCoursesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "activityId" | "dayOfWeek" | "startTime" | "capacity" | "createdAt" | "updatedAt", ExtArgs["result"]["scheduledCourses"]>
 export type ScheduledCoursesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  activities?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
+  activity?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
 }
 export type ScheduledCoursesIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  activities?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
+  activity?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
 }
 export type ScheduledCoursesIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  activities?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
+  activity?: boolean | Prisma.ActivitiesDefaultArgs<ExtArgs>
 }
 
 export type $ScheduledCoursesPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ScheduledCourses"
   objects: {
-    activities: Prisma.$ActivitiesPayload<ExtArgs>
+    activity: Prisma.$ActivitiesPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1017,7 +1017,7 @@ readonly fields: ScheduledCoursesFieldRefs;
  */
 export interface Prisma__ScheduledCoursesClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  activities<T extends Prisma.ActivitiesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ActivitiesDefaultArgs<ExtArgs>>): Prisma.Prisma__ActivitiesClient<runtime.Types.Result.GetResult<Prisma.$ActivitiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  activity<T extends Prisma.ActivitiesDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ActivitiesDefaultArgs<ExtArgs>>): Prisma.Prisma__ActivitiesClient<runtime.Types.Result.GetResult<Prisma.$ActivitiesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

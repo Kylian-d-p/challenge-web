@@ -263,8 +263,8 @@ export type UsersCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   role?: $Enums.UserRole
-  bookings?: Prisma.BookingsCreateNestedManyWithoutUsersInput
-  sessions?: Prisma.SessionsCreateNestedManyWithoutUsersInput
+  bookings?: Prisma.BookingsCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionsCreateNestedManyWithoutUserInput
 }
 
 export type UsersUncheckedCreateInput = {
@@ -275,8 +275,8 @@ export type UsersUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   role?: $Enums.UserRole
-  bookings?: Prisma.BookingsUncheckedCreateNestedManyWithoutUsersInput
-  sessions?: Prisma.SessionsUncheckedCreateNestedManyWithoutUsersInput
+  bookings?: Prisma.BookingsUncheckedCreateNestedManyWithoutUserInput
+  sessions?: Prisma.SessionsUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UsersUpdateInput = {
@@ -287,8 +287,8 @@ export type UsersUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  bookings?: Prisma.BookingsUpdateManyWithoutUsersNestedInput
-  sessions?: Prisma.SessionsUpdateManyWithoutUsersNestedInput
+  bookings?: Prisma.BookingsUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionsUpdateManyWithoutUserNestedInput
 }
 
 export type UsersUncheckedUpdateInput = {
@@ -299,8 +299,8 @@ export type UsersUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  bookings?: Prisma.BookingsUncheckedUpdateManyWithoutUsersNestedInput
-  sessions?: Prisma.SessionsUncheckedUpdateManyWithoutUsersNestedInput
+  bookings?: Prisma.BookingsUncheckedUpdateManyWithoutUserNestedInput
+  sessions?: Prisma.SessionsUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UsersCreateManyInput = {
@@ -416,7 +416,7 @@ export type UsersCreateWithoutSessionsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   role?: $Enums.UserRole
-  bookings?: Prisma.BookingsCreateNestedManyWithoutUsersInput
+  bookings?: Prisma.BookingsCreateNestedManyWithoutUserInput
 }
 
 export type UsersUncheckedCreateWithoutSessionsInput = {
@@ -427,7 +427,7 @@ export type UsersUncheckedCreateWithoutSessionsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   role?: $Enums.UserRole
-  bookings?: Prisma.BookingsUncheckedCreateNestedManyWithoutUsersInput
+  bookings?: Prisma.BookingsUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UsersCreateOrConnectWithoutSessionsInput = {
@@ -454,7 +454,7 @@ export type UsersUpdateWithoutSessionsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  bookings?: Prisma.BookingsUpdateManyWithoutUsersNestedInput
+  bookings?: Prisma.BookingsUpdateManyWithoutUserNestedInput
 }
 
 export type UsersUncheckedUpdateWithoutSessionsInput = {
@@ -465,7 +465,7 @@ export type UsersUncheckedUpdateWithoutSessionsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  bookings?: Prisma.BookingsUncheckedUpdateManyWithoutUsersNestedInput
+  bookings?: Prisma.BookingsUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UsersCreateWithoutBookingsInput = {
@@ -476,7 +476,7 @@ export type UsersCreateWithoutBookingsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   role?: $Enums.UserRole
-  sessions?: Prisma.SessionsCreateNestedManyWithoutUsersInput
+  sessions?: Prisma.SessionsCreateNestedManyWithoutUserInput
 }
 
 export type UsersUncheckedCreateWithoutBookingsInput = {
@@ -487,7 +487,7 @@ export type UsersUncheckedCreateWithoutBookingsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   role?: $Enums.UserRole
-  sessions?: Prisma.SessionsUncheckedCreateNestedManyWithoutUsersInput
+  sessions?: Prisma.SessionsUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UsersCreateOrConnectWithoutBookingsInput = {
@@ -514,7 +514,7 @@ export type UsersUpdateWithoutBookingsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  sessions?: Prisma.SessionsUpdateManyWithoutUsersNestedInput
+  sessions?: Prisma.SessionsUpdateManyWithoutUserNestedInput
 }
 
 export type UsersUncheckedUpdateWithoutBookingsInput = {
@@ -525,7 +525,7 @@ export type UsersUncheckedUpdateWithoutBookingsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
-  sessions?: Prisma.SessionsUncheckedUpdateManyWithoutUsersNestedInput
+  sessions?: Prisma.SessionsUncheckedUpdateManyWithoutUserNestedInput
 }
 
 

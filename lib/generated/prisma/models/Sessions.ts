@@ -166,14 +166,14 @@ export type SessionsWhereInput = {
   id?: Prisma.StringFilter<"Sessions"> | string
   userId?: Prisma.StringFilter<"Sessions"> | string
   expiresAt?: Prisma.DateTimeFilter<"Sessions"> | Date | string
-  users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.UsersWhereInput>
+  user?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.UsersWhereInput>
 }
 
 export type SessionsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
-  users?: Prisma.UsersOrderByWithRelationInput
+  user?: Prisma.UsersOrderByWithRelationInput
 }
 
 export type SessionsWhereUniqueInput = Prisma.AtLeast<{
@@ -183,7 +183,7 @@ export type SessionsWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SessionsWhereInput | Prisma.SessionsWhereInput[]
   userId?: Prisma.StringFilter<"Sessions"> | string
   expiresAt?: Prisma.DateTimeFilter<"Sessions"> | Date | string
-  users?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.UsersWhereInput>
+  user?: Prisma.XOR<Prisma.UsersScalarRelationFilter, Prisma.UsersWhereInput>
 }, "id">
 
 export type SessionsOrderByWithAggregationInput = {
@@ -207,7 +207,7 @@ export type SessionsScalarWhereWithAggregatesInput = {
 export type SessionsCreateInput = {
   id?: string
   expiresAt: Date | string
-  users: Prisma.UsersCreateNestedOneWithoutSessionsInput
+  user: Prisma.UsersCreateNestedOneWithoutSessionsInput
 }
 
 export type SessionsUncheckedCreateInput = {
@@ -219,7 +219,7 @@ export type SessionsUncheckedCreateInput = {
 export type SessionsUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  users?: Prisma.UsersUpdateOneRequiredWithoutSessionsNestedInput
+  user?: Prisma.UsersUpdateOneRequiredWithoutSessionsNestedInput
 }
 
 export type SessionsUncheckedUpdateInput = {
@@ -273,82 +273,82 @@ export type SessionsMinOrderByAggregateInput = {
   expiresAt?: Prisma.SortOrder
 }
 
-export type SessionsCreateNestedManyWithoutUsersInput = {
-  create?: Prisma.XOR<Prisma.SessionsCreateWithoutUsersInput, Prisma.SessionsUncheckedCreateWithoutUsersInput> | Prisma.SessionsCreateWithoutUsersInput[] | Prisma.SessionsUncheckedCreateWithoutUsersInput[]
-  connectOrCreate?: Prisma.SessionsCreateOrConnectWithoutUsersInput | Prisma.SessionsCreateOrConnectWithoutUsersInput[]
-  createMany?: Prisma.SessionsCreateManyUsersInputEnvelope
+export type SessionsCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.SessionsCreateWithoutUserInput, Prisma.SessionsUncheckedCreateWithoutUserInput> | Prisma.SessionsCreateWithoutUserInput[] | Prisma.SessionsUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.SessionsCreateOrConnectWithoutUserInput | Prisma.SessionsCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.SessionsCreateManyUserInputEnvelope
   connect?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
 }
 
-export type SessionsUncheckedCreateNestedManyWithoutUsersInput = {
-  create?: Prisma.XOR<Prisma.SessionsCreateWithoutUsersInput, Prisma.SessionsUncheckedCreateWithoutUsersInput> | Prisma.SessionsCreateWithoutUsersInput[] | Prisma.SessionsUncheckedCreateWithoutUsersInput[]
-  connectOrCreate?: Prisma.SessionsCreateOrConnectWithoutUsersInput | Prisma.SessionsCreateOrConnectWithoutUsersInput[]
-  createMany?: Prisma.SessionsCreateManyUsersInputEnvelope
+export type SessionsUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.SessionsCreateWithoutUserInput, Prisma.SessionsUncheckedCreateWithoutUserInput> | Prisma.SessionsCreateWithoutUserInput[] | Prisma.SessionsUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.SessionsCreateOrConnectWithoutUserInput | Prisma.SessionsCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.SessionsCreateManyUserInputEnvelope
   connect?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
 }
 
-export type SessionsUpdateManyWithoutUsersNestedInput = {
-  create?: Prisma.XOR<Prisma.SessionsCreateWithoutUsersInput, Prisma.SessionsUncheckedCreateWithoutUsersInput> | Prisma.SessionsCreateWithoutUsersInput[] | Prisma.SessionsUncheckedCreateWithoutUsersInput[]
-  connectOrCreate?: Prisma.SessionsCreateOrConnectWithoutUsersInput | Prisma.SessionsCreateOrConnectWithoutUsersInput[]
-  upsert?: Prisma.SessionsUpsertWithWhereUniqueWithoutUsersInput | Prisma.SessionsUpsertWithWhereUniqueWithoutUsersInput[]
-  createMany?: Prisma.SessionsCreateManyUsersInputEnvelope
+export type SessionsUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.SessionsCreateWithoutUserInput, Prisma.SessionsUncheckedCreateWithoutUserInput> | Prisma.SessionsCreateWithoutUserInput[] | Prisma.SessionsUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.SessionsCreateOrConnectWithoutUserInput | Prisma.SessionsCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.SessionsUpsertWithWhereUniqueWithoutUserInput | Prisma.SessionsUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.SessionsCreateManyUserInputEnvelope
   set?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
   disconnect?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
   delete?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
   connect?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
-  update?: Prisma.SessionsUpdateWithWhereUniqueWithoutUsersInput | Prisma.SessionsUpdateWithWhereUniqueWithoutUsersInput[]
-  updateMany?: Prisma.SessionsUpdateManyWithWhereWithoutUsersInput | Prisma.SessionsUpdateManyWithWhereWithoutUsersInput[]
+  update?: Prisma.SessionsUpdateWithWhereUniqueWithoutUserInput | Prisma.SessionsUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.SessionsUpdateManyWithWhereWithoutUserInput | Prisma.SessionsUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.SessionsScalarWhereInput | Prisma.SessionsScalarWhereInput[]
 }
 
-export type SessionsUncheckedUpdateManyWithoutUsersNestedInput = {
-  create?: Prisma.XOR<Prisma.SessionsCreateWithoutUsersInput, Prisma.SessionsUncheckedCreateWithoutUsersInput> | Prisma.SessionsCreateWithoutUsersInput[] | Prisma.SessionsUncheckedCreateWithoutUsersInput[]
-  connectOrCreate?: Prisma.SessionsCreateOrConnectWithoutUsersInput | Prisma.SessionsCreateOrConnectWithoutUsersInput[]
-  upsert?: Prisma.SessionsUpsertWithWhereUniqueWithoutUsersInput | Prisma.SessionsUpsertWithWhereUniqueWithoutUsersInput[]
-  createMany?: Prisma.SessionsCreateManyUsersInputEnvelope
+export type SessionsUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.SessionsCreateWithoutUserInput, Prisma.SessionsUncheckedCreateWithoutUserInput> | Prisma.SessionsCreateWithoutUserInput[] | Prisma.SessionsUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.SessionsCreateOrConnectWithoutUserInput | Prisma.SessionsCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.SessionsUpsertWithWhereUniqueWithoutUserInput | Prisma.SessionsUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.SessionsCreateManyUserInputEnvelope
   set?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
   disconnect?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
   delete?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
   connect?: Prisma.SessionsWhereUniqueInput | Prisma.SessionsWhereUniqueInput[]
-  update?: Prisma.SessionsUpdateWithWhereUniqueWithoutUsersInput | Prisma.SessionsUpdateWithWhereUniqueWithoutUsersInput[]
-  updateMany?: Prisma.SessionsUpdateManyWithWhereWithoutUsersInput | Prisma.SessionsUpdateManyWithWhereWithoutUsersInput[]
+  update?: Prisma.SessionsUpdateWithWhereUniqueWithoutUserInput | Prisma.SessionsUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.SessionsUpdateManyWithWhereWithoutUserInput | Prisma.SessionsUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.SessionsScalarWhereInput | Prisma.SessionsScalarWhereInput[]
 }
 
-export type SessionsCreateWithoutUsersInput = {
+export type SessionsCreateWithoutUserInput = {
   id?: string
   expiresAt: Date | string
 }
 
-export type SessionsUncheckedCreateWithoutUsersInput = {
+export type SessionsUncheckedCreateWithoutUserInput = {
   id?: string
   expiresAt: Date | string
 }
 
-export type SessionsCreateOrConnectWithoutUsersInput = {
+export type SessionsCreateOrConnectWithoutUserInput = {
   where: Prisma.SessionsWhereUniqueInput
-  create: Prisma.XOR<Prisma.SessionsCreateWithoutUsersInput, Prisma.SessionsUncheckedCreateWithoutUsersInput>
+  create: Prisma.XOR<Prisma.SessionsCreateWithoutUserInput, Prisma.SessionsUncheckedCreateWithoutUserInput>
 }
 
-export type SessionsCreateManyUsersInputEnvelope = {
-  data: Prisma.SessionsCreateManyUsersInput | Prisma.SessionsCreateManyUsersInput[]
+export type SessionsCreateManyUserInputEnvelope = {
+  data: Prisma.SessionsCreateManyUserInput | Prisma.SessionsCreateManyUserInput[]
   skipDuplicates?: boolean
 }
 
-export type SessionsUpsertWithWhereUniqueWithoutUsersInput = {
+export type SessionsUpsertWithWhereUniqueWithoutUserInput = {
   where: Prisma.SessionsWhereUniqueInput
-  update: Prisma.XOR<Prisma.SessionsUpdateWithoutUsersInput, Prisma.SessionsUncheckedUpdateWithoutUsersInput>
-  create: Prisma.XOR<Prisma.SessionsCreateWithoutUsersInput, Prisma.SessionsUncheckedCreateWithoutUsersInput>
+  update: Prisma.XOR<Prisma.SessionsUpdateWithoutUserInput, Prisma.SessionsUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.SessionsCreateWithoutUserInput, Prisma.SessionsUncheckedCreateWithoutUserInput>
 }
 
-export type SessionsUpdateWithWhereUniqueWithoutUsersInput = {
+export type SessionsUpdateWithWhereUniqueWithoutUserInput = {
   where: Prisma.SessionsWhereUniqueInput
-  data: Prisma.XOR<Prisma.SessionsUpdateWithoutUsersInput, Prisma.SessionsUncheckedUpdateWithoutUsersInput>
+  data: Prisma.XOR<Prisma.SessionsUpdateWithoutUserInput, Prisma.SessionsUncheckedUpdateWithoutUserInput>
 }
 
-export type SessionsUpdateManyWithWhereWithoutUsersInput = {
+export type SessionsUpdateManyWithWhereWithoutUserInput = {
   where: Prisma.SessionsScalarWhereInput
-  data: Prisma.XOR<Prisma.SessionsUpdateManyMutationInput, Prisma.SessionsUncheckedUpdateManyWithoutUsersInput>
+  data: Prisma.XOR<Prisma.SessionsUpdateManyMutationInput, Prisma.SessionsUncheckedUpdateManyWithoutUserInput>
 }
 
 export type SessionsScalarWhereInput = {
@@ -360,22 +360,22 @@ export type SessionsScalarWhereInput = {
   expiresAt?: Prisma.DateTimeFilter<"Sessions"> | Date | string
 }
 
-export type SessionsCreateManyUsersInput = {
+export type SessionsCreateManyUserInput = {
   id?: string
   expiresAt: Date | string
 }
 
-export type SessionsUpdateWithoutUsersInput = {
+export type SessionsUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type SessionsUncheckedUpdateWithoutUsersInput = {
+export type SessionsUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type SessionsUncheckedUpdateManyWithoutUsersInput = {
+export type SessionsUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -386,21 +386,21 @@ export type SessionsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   id?: boolean
   userId?: boolean
   expiresAt?: boolean
-  users?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sessions"]>
 
 export type SessionsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
   expiresAt?: boolean
-  users?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sessions"]>
 
 export type SessionsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   userId?: boolean
   expiresAt?: boolean
-  users?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sessions"]>
 
 export type SessionsSelectScalar = {
@@ -411,19 +411,19 @@ export type SessionsSelectScalar = {
 
 export type SessionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "expiresAt", ExtArgs["result"]["sessions"]>
 export type SessionsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  users?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
 }
 export type SessionsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  users?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
 }
 export type SessionsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  users?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UsersDefaultArgs<ExtArgs>
 }
 
 export type $SessionsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Sessions"
   objects: {
-    users: Prisma.$UsersPayload<ExtArgs>
+    user: Prisma.$UsersPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -823,7 +823,7 @@ readonly fields: SessionsFieldRefs;
  */
 export interface Prisma__SessionsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  users<T extends Prisma.UsersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsersDefaultArgs<ExtArgs>>): Prisma.Prisma__UsersClient<runtime.Types.Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UsersDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UsersDefaultArgs<ExtArgs>>): Prisma.Prisma__UsersClient<runtime.Types.Result.GetResult<Prisma.$UsersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.

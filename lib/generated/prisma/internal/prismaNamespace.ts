@@ -955,6 +955,7 @@ export const ActivitiesScalarFieldEnum = {
   name: 'name',
   description: 'description',
   imageUrl: 'imageUrl',
+  duration: 'duration',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

@@ -20,8 +20,18 @@ export type ActivitiesModel = runtime.Types.Result.DefaultSelection<Prisma.$Acti
 
 export type AggregateActivities = {
   _count: ActivitiesCountAggregateOutputType | null
+  _avg: ActivitiesAvgAggregateOutputType | null
+  _sum: ActivitiesSumAggregateOutputType | null
   _min: ActivitiesMinAggregateOutputType | null
   _max: ActivitiesMaxAggregateOutputType | null
+}
+
+export type ActivitiesAvgAggregateOutputType = {
+  duration: number | null
+}
+
+export type ActivitiesSumAggregateOutputType = {
+  duration: number | null
 }
 
 export type ActivitiesMinAggregateOutputType = {
@@ -29,6 +39,7 @@ export type ActivitiesMinAggregateOutputType = {
   name: string | null
   description: string | null
   imageUrl: string | null
+  duration: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -38,6 +49,7 @@ export type ActivitiesMaxAggregateOutputType = {
   name: string | null
   description: string | null
   imageUrl: string | null
+  duration: number | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -47,17 +59,27 @@ export type ActivitiesCountAggregateOutputType = {
   name: number
   description: number
   imageUrl: number
+  duration: number
   createdAt: number
   updatedAt: number
   _all: number
 }
 
 
+export type ActivitiesAvgAggregateInputType = {
+  duration?: true
+}
+
+export type ActivitiesSumAggregateInputType = {
+  duration?: true
+}
+
 export type ActivitiesMinAggregateInputType = {
   id?: true
   name?: true
   description?: true
   imageUrl?: true
+  duration?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -67,6 +89,7 @@ export type ActivitiesMaxAggregateInputType = {
   name?: true
   description?: true
   imageUrl?: true
+  duration?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -76,6 +99,7 @@ export type ActivitiesCountAggregateInputType = {
   name?: true
   description?: true
   imageUrl?: true
+  duration?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -119,6 +143,18 @@ export type ActivitiesAggregateArgs<ExtArgs extends runtime.Types.Extensions.Int
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: ActivitiesAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: ActivitiesSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: ActivitiesMinAggregateInputType
@@ -149,6 +185,8 @@ export type ActivitiesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   _count?: ActivitiesCountAggregateInputType | true
+  _avg?: ActivitiesAvgAggregateInputType
+  _sum?: ActivitiesSumAggregateInputType
   _min?: ActivitiesMinAggregateInputType
   _max?: ActivitiesMaxAggregateInputType
 }
@@ -158,9 +196,12 @@ export type ActivitiesGroupByOutputType = {
   name: string
   description: string
   imageUrl: string
+  duration: number
   createdAt: Date
   updatedAt: Date
   _count: ActivitiesCountAggregateOutputType | null
+  _avg: ActivitiesAvgAggregateOutputType | null
+  _sum: ActivitiesSumAggregateOutputType | null
   _min: ActivitiesMinAggregateOutputType | null
   _max: ActivitiesMaxAggregateOutputType | null
 }
@@ -188,6 +229,7 @@ export type ActivitiesWhereInput = {
   name?: Prisma.StringFilter<"Activities"> | string
   description?: Prisma.StringFilter<"Activities"> | string
   imageUrl?: Prisma.StringFilter<"Activities"> | string
+  duration?: Prisma.IntFilter<"Activities"> | number
   createdAt?: Prisma.DateTimeFilter<"Activities"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Activities"> | Date | string
   courses?: Prisma.CoursesListRelationFilter
@@ -199,6 +241,7 @@ export type ActivitiesOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  duration?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   courses?: Prisma.CoursesOrderByRelationAggregateInput
@@ -213,6 +256,7 @@ export type ActivitiesWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"Activities"> | string
   description?: Prisma.StringFilter<"Activities"> | string
   imageUrl?: Prisma.StringFilter<"Activities"> | string
+  duration?: Prisma.IntFilter<"Activities"> | number
   createdAt?: Prisma.DateTimeFilter<"Activities"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Activities"> | Date | string
   courses?: Prisma.CoursesListRelationFilter
@@ -224,11 +268,14 @@ export type ActivitiesOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  duration?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ActivitiesCountOrderByAggregateInput
+  _avg?: Prisma.ActivitiesAvgOrderByAggregateInput
   _max?: Prisma.ActivitiesMaxOrderByAggregateInput
   _min?: Prisma.ActivitiesMinOrderByAggregateInput
+  _sum?: Prisma.ActivitiesSumOrderByAggregateInput
 }
 
 export type ActivitiesScalarWhereWithAggregatesInput = {
@@ -239,6 +286,7 @@ export type ActivitiesScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Activities"> | string
   description?: Prisma.StringWithAggregatesFilter<"Activities"> | string
   imageUrl?: Prisma.StringWithAggregatesFilter<"Activities"> | string
+  duration?: Prisma.IntWithAggregatesFilter<"Activities"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Activities"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Activities"> | Date | string
 }
@@ -248,6 +296,7 @@ export type ActivitiesCreateInput = {
   name: string
   description: string
   imageUrl: string
+  duration: number
   createdAt?: Date | string
   updatedAt?: Date | string
   courses?: Prisma.CoursesCreateNestedManyWithoutActivityInput
@@ -259,6 +308,7 @@ export type ActivitiesUncheckedCreateInput = {
   name: string
   description: string
   imageUrl: string
+  duration: number
   createdAt?: Date | string
   updatedAt?: Date | string
   courses?: Prisma.CoursesUncheckedCreateNestedManyWithoutActivityInput
@@ -270,6 +320,7 @@ export type ActivitiesUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  duration?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   courses?: Prisma.CoursesUpdateManyWithoutActivityNestedInput
@@ -281,6 +332,7 @@ export type ActivitiesUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  duration?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   courses?: Prisma.CoursesUncheckedUpdateManyWithoutActivityNestedInput
@@ -292,6 +344,7 @@ export type ActivitiesCreateManyInput = {
   name: string
   description: string
   imageUrl: string
+  duration: number
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -301,6 +354,7 @@ export type ActivitiesUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  duration?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -310,6 +364,7 @@ export type ActivitiesUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  duration?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -324,8 +379,13 @@ export type ActivitiesCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  duration?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type ActivitiesAvgOrderByAggregateInput = {
+  duration?: Prisma.SortOrder
 }
 
 export type ActivitiesMaxOrderByAggregateInput = {
@@ -333,6 +393,7 @@ export type ActivitiesMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  duration?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -342,8 +403,13 @@ export type ActivitiesMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   imageUrl?: Prisma.SortOrder
+  duration?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+}
+
+export type ActivitiesSumOrderByAggregateInput = {
+  duration?: Prisma.SortOrder
 }
 
 export type ActivitiesCreateNestedOneWithoutScheduledCoursesInput = {
@@ -379,6 +445,7 @@ export type ActivitiesCreateWithoutScheduledCoursesInput = {
   name: string
   description: string
   imageUrl: string
+  duration: number
   createdAt?: Date | string
   updatedAt?: Date | string
   courses?: Prisma.CoursesCreateNestedManyWithoutActivityInput
@@ -389,6 +456,7 @@ export type ActivitiesUncheckedCreateWithoutScheduledCoursesInput = {
   name: string
   description: string
   imageUrl: string
+  duration: number
   createdAt?: Date | string
   updatedAt?: Date | string
   courses?: Prisma.CoursesUncheckedCreateNestedManyWithoutActivityInput
@@ -415,6 +483,7 @@ export type ActivitiesUpdateWithoutScheduledCoursesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  duration?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   courses?: Prisma.CoursesUpdateManyWithoutActivityNestedInput
@@ -425,6 +494,7 @@ export type ActivitiesUncheckedUpdateWithoutScheduledCoursesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  duration?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   courses?: Prisma.CoursesUncheckedUpdateManyWithoutActivityNestedInput
@@ -435,6 +505,7 @@ export type ActivitiesCreateWithoutCoursesInput = {
   name: string
   description: string
   imageUrl: string
+  duration: number
   createdAt?: Date | string
   updatedAt?: Date | string
   scheduledCourses?: Prisma.ScheduledCoursesCreateNestedManyWithoutActivityInput
@@ -445,6 +516,7 @@ export type ActivitiesUncheckedCreateWithoutCoursesInput = {
   name: string
   description: string
   imageUrl: string
+  duration: number
   createdAt?: Date | string
   updatedAt?: Date | string
   scheduledCourses?: Prisma.ScheduledCoursesUncheckedCreateNestedManyWithoutActivityInput
@@ -471,6 +543,7 @@ export type ActivitiesUpdateWithoutCoursesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  duration?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scheduledCourses?: Prisma.ScheduledCoursesUpdateManyWithoutActivityNestedInput
@@ -481,6 +554,7 @@ export type ActivitiesUncheckedUpdateWithoutCoursesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   imageUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  duration?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scheduledCourses?: Prisma.ScheduledCoursesUncheckedUpdateManyWithoutActivityNestedInput
@@ -531,6 +605,7 @@ export type ActivitiesSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   name?: boolean
   description?: boolean
   imageUrl?: boolean
+  duration?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   courses?: boolean | Prisma.Activities$coursesArgs<ExtArgs>
@@ -543,6 +618,7 @@ export type ActivitiesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   name?: boolean
   description?: boolean
   imageUrl?: boolean
+  duration?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["activities"]>
@@ -552,6 +628,7 @@ export type ActivitiesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   name?: boolean
   description?: boolean
   imageUrl?: boolean
+  duration?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["activities"]>
@@ -561,11 +638,12 @@ export type ActivitiesSelectScalar = {
   name?: boolean
   description?: boolean
   imageUrl?: boolean
+  duration?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ActivitiesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "imageUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["activities"]>
+export type ActivitiesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "imageUrl" | "duration" | "createdAt" | "updatedAt", ExtArgs["result"]["activities"]>
 export type ActivitiesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   courses?: boolean | Prisma.Activities$coursesArgs<ExtArgs>
   scheduledCourses?: boolean | Prisma.Activities$scheduledCoursesArgs<ExtArgs>
@@ -585,6 +663,7 @@ export type $ActivitiesPayload<ExtArgs extends runtime.Types.Extensions.Internal
     name: string
     description: string
     imageUrl: string
+    duration: number
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["activities"]>
@@ -1016,6 +1095,7 @@ export interface ActivitiesFieldRefs {
   readonly name: Prisma.FieldRef<"Activities", 'String'>
   readonly description: Prisma.FieldRef<"Activities", 'String'>
   readonly imageUrl: Prisma.FieldRef<"Activities", 'String'>
+  readonly duration: Prisma.FieldRef<"Activities", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Activities", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Activities", 'DateTime'>
 }

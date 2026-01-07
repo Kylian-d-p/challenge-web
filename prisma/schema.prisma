@@ -36,7 +36,7 @@ model ScheduledCourses {
   id         String   @id @default(uuid())
   activityId String   @map("activity_id")
   dayOfWeek  Int      @map("day_of_week")
-  startTime  String   @map("start_time")
+  startTime  Int      @map("start_time")
   capacity   Int
   createdAt  DateTime @default(now()) @map("created_at")
   updatedAt  DateTime @updatedAt @map("updated_at")
@@ -78,6 +78,7 @@ model Activities {
   name        String
   description String
   imageUrl    String   @map("image_url")
+  duration    Int
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 

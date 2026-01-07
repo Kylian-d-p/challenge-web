@@ -28,11 +28,13 @@ export type AggregateScheduledCourses = {
 
 export type ScheduledCoursesAvgAggregateOutputType = {
   dayOfWeek: number | null
+  startTime: number | null
   capacity: number | null
 }
 
 export type ScheduledCoursesSumAggregateOutputType = {
   dayOfWeek: number | null
+  startTime: number | null
   capacity: number | null
 }
 
@@ -40,7 +42,7 @@ export type ScheduledCoursesMinAggregateOutputType = {
   id: string | null
   activityId: string | null
   dayOfWeek: number | null
-  startTime: string | null
+  startTime: number | null
   capacity: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -50,7 +52,7 @@ export type ScheduledCoursesMaxAggregateOutputType = {
   id: string | null
   activityId: string | null
   dayOfWeek: number | null
-  startTime: string | null
+  startTime: number | null
   capacity: number | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -70,11 +72,13 @@ export type ScheduledCoursesCountAggregateOutputType = {
 
 export type ScheduledCoursesAvgAggregateInputType = {
   dayOfWeek?: true
+  startTime?: true
   capacity?: true
 }
 
 export type ScheduledCoursesSumAggregateInputType = {
   dayOfWeek?: true
+  startTime?: true
   capacity?: true
 }
 
@@ -199,7 +203,7 @@ export type ScheduledCoursesGroupByOutputType = {
   id: string
   activityId: string
   dayOfWeek: number
-  startTime: string
+  startTime: number
   capacity: number
   createdAt: Date
   updatedAt: Date
@@ -232,7 +236,7 @@ export type ScheduledCoursesWhereInput = {
   id?: Prisma.StringFilter<"ScheduledCourses"> | string
   activityId?: Prisma.StringFilter<"ScheduledCourses"> | string
   dayOfWeek?: Prisma.IntFilter<"ScheduledCourses"> | number
-  startTime?: Prisma.StringFilter<"ScheduledCourses"> | string
+  startTime?: Prisma.IntFilter<"ScheduledCourses"> | number
   capacity?: Prisma.IntFilter<"ScheduledCourses"> | number
   createdAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
@@ -257,7 +261,7 @@ export type ScheduledCoursesWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ScheduledCoursesWhereInput | Prisma.ScheduledCoursesWhereInput[]
   activityId?: Prisma.StringFilter<"ScheduledCourses"> | string
   dayOfWeek?: Prisma.IntFilter<"ScheduledCourses"> | number
-  startTime?: Prisma.StringFilter<"ScheduledCourses"> | string
+  startTime?: Prisma.IntFilter<"ScheduledCourses"> | number
   capacity?: Prisma.IntFilter<"ScheduledCourses"> | number
   createdAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
@@ -286,7 +290,7 @@ export type ScheduledCoursesScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"ScheduledCourses"> | string
   activityId?: Prisma.StringWithAggregatesFilter<"ScheduledCourses"> | string
   dayOfWeek?: Prisma.IntWithAggregatesFilter<"ScheduledCourses"> | number
-  startTime?: Prisma.StringWithAggregatesFilter<"ScheduledCourses"> | string
+  startTime?: Prisma.IntWithAggregatesFilter<"ScheduledCourses"> | number
   capacity?: Prisma.IntWithAggregatesFilter<"ScheduledCourses"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ScheduledCourses"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ScheduledCourses"> | Date | string
@@ -295,7 +299,7 @@ export type ScheduledCoursesScalarWhereWithAggregatesInput = {
 export type ScheduledCoursesCreateInput = {
   id?: string
   dayOfWeek: number
-  startTime: string
+  startTime: number
   capacity: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -306,7 +310,7 @@ export type ScheduledCoursesUncheckedCreateInput = {
   id?: string
   activityId: string
   dayOfWeek: number
-  startTime: string
+  startTime: number
   capacity: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -315,7 +319,7 @@ export type ScheduledCoursesUncheckedCreateInput = {
 export type ScheduledCoursesUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
+  startTime?: Prisma.IntFieldUpdateOperationsInput | number
   capacity?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -326,7 +330,7 @@ export type ScheduledCoursesUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   activityId?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
+  startTime?: Prisma.IntFieldUpdateOperationsInput | number
   capacity?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -336,7 +340,7 @@ export type ScheduledCoursesCreateManyInput = {
   id?: string
   activityId: string
   dayOfWeek: number
-  startTime: string
+  startTime: number
   capacity: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -345,7 +349,7 @@ export type ScheduledCoursesCreateManyInput = {
 export type ScheduledCoursesUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
+  startTime?: Prisma.IntFieldUpdateOperationsInput | number
   capacity?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -355,7 +359,7 @@ export type ScheduledCoursesUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   activityId?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
+  startTime?: Prisma.IntFieldUpdateOperationsInput | number
   capacity?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -373,6 +377,7 @@ export type ScheduledCoursesCountOrderByAggregateInput = {
 
 export type ScheduledCoursesAvgOrderByAggregateInput = {
   dayOfWeek?: Prisma.SortOrder
+  startTime?: Prisma.SortOrder
   capacity?: Prisma.SortOrder
 }
 
@@ -398,6 +403,7 @@ export type ScheduledCoursesMinOrderByAggregateInput = {
 
 export type ScheduledCoursesSumOrderByAggregateInput = {
   dayOfWeek?: Prisma.SortOrder
+  startTime?: Prisma.SortOrder
   capacity?: Prisma.SortOrder
 }
 
@@ -464,7 +470,7 @@ export type ScheduledCoursesUncheckedUpdateManyWithoutActivityNestedInput = {
 export type ScheduledCoursesCreateWithoutActivityInput = {
   id?: string
   dayOfWeek: number
-  startTime: string
+  startTime: number
   capacity: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -473,7 +479,7 @@ export type ScheduledCoursesCreateWithoutActivityInput = {
 export type ScheduledCoursesUncheckedCreateWithoutActivityInput = {
   id?: string
   dayOfWeek: number
-  startTime: string
+  startTime: number
   capacity: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -512,7 +518,7 @@ export type ScheduledCoursesScalarWhereInput = {
   id?: Prisma.StringFilter<"ScheduledCourses"> | string
   activityId?: Prisma.StringFilter<"ScheduledCourses"> | string
   dayOfWeek?: Prisma.IntFilter<"ScheduledCourses"> | number
-  startTime?: Prisma.StringFilter<"ScheduledCourses"> | string
+  startTime?: Prisma.IntFilter<"ScheduledCourses"> | number
   capacity?: Prisma.IntFilter<"ScheduledCourses"> | number
   createdAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ScheduledCourses"> | Date | string
@@ -521,7 +527,7 @@ export type ScheduledCoursesScalarWhereInput = {
 export type ScheduledCoursesCreateManyActivityInput = {
   id?: string
   dayOfWeek: number
-  startTime: string
+  startTime: number
   capacity: number
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -530,7 +536,7 @@ export type ScheduledCoursesCreateManyActivityInput = {
 export type ScheduledCoursesUpdateWithoutActivityInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
+  startTime?: Prisma.IntFieldUpdateOperationsInput | number
   capacity?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -539,7 +545,7 @@ export type ScheduledCoursesUpdateWithoutActivityInput = {
 export type ScheduledCoursesUncheckedUpdateWithoutActivityInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
+  startTime?: Prisma.IntFieldUpdateOperationsInput | number
   capacity?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -548,7 +554,7 @@ export type ScheduledCoursesUncheckedUpdateWithoutActivityInput = {
 export type ScheduledCoursesUncheckedUpdateManyWithoutActivityInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
-  startTime?: Prisma.StringFieldUpdateOperationsInput | string
+  startTime?: Prisma.IntFieldUpdateOperationsInput | number
   capacity?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -619,7 +625,7 @@ export type $ScheduledCoursesPayload<ExtArgs extends runtime.Types.Extensions.In
     id: string
     activityId: string
     dayOfWeek: number
-    startTime: string
+    startTime: number
     capacity: number
     createdAt: Date
     updatedAt: Date
@@ -1050,7 +1056,7 @@ export interface ScheduledCoursesFieldRefs {
   readonly id: Prisma.FieldRef<"ScheduledCourses", 'String'>
   readonly activityId: Prisma.FieldRef<"ScheduledCourses", 'String'>
   readonly dayOfWeek: Prisma.FieldRef<"ScheduledCourses", 'Int'>
-  readonly startTime: Prisma.FieldRef<"ScheduledCourses", 'String'>
+  readonly startTime: Prisma.FieldRef<"ScheduledCourses", 'Int'>
   readonly capacity: Prisma.FieldRef<"ScheduledCourses", 'Int'>
   readonly createdAt: Prisma.FieldRef<"ScheduledCourses", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"ScheduledCourses", 'DateTime'>

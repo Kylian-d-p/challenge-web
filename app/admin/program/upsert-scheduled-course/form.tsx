@@ -11,21 +11,32 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import z from "zod";
-import { addScheduledCourseAction } from "./action";
+import { upsertScheduledCourseAction } from "./action";
 
-export default function AddScheduledCourseForm(props: { activities: { id: string; name: string; duration: number }[]; onSubmit?: () => void }) {
+export default function UpsertScheduledCourseForm(props: {
+  activities: { id: string; name: string; duration: number }[];
+  onSubmit?: () => void;
+  defaultValues?: {
+    id: string;
+    activityId: string;
+    dayOfWeek: string;
+    startTime: string;
+    capacity: string;
+  };
+}) {
   const form = useForm({
-    resolver: zodResolver(formSchemas.addScheduledCourse),
+    resolver: zodResolver(formSchemas.upsertScheduledCourse),
     defaultValues: {
-      activityId: "",
-      dayOfWeek: "0",
-      startTime: "0",
-      capacity: "1",
+      id: props.defaultValues?.id || "",
+      activityId: props.defaultValues?.activityId || "",
+      dayOfWeek: props.defaultValues?.dayOfWeek || "",
+      startTime: props.defaultValues?.startTime || "",
+      capacity: props.defaultValues?.capacity || "",
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchemas.addScheduledCourse>) => {
-    const res = await addScheduledCourseAction(values);
+  const onSubmit = async (values: z.infer<typeof formSchemas.upsertScheduledCourse>) => {
+    const res = await upsertScheduledCourseAction(values);
 
     props.onSubmit?.();
 

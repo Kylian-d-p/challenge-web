@@ -6,13 +6,21 @@ import { isAdmin } from "@/lib/server-actions-middleware";
 import { formSchemas } from "@/lib/types";
 import { revalidatePath } from "next/cache";
 
-export const addScheduledCourseAction = createSafeAction
+export const upsertScheduledCourseAction = createSafeAction
   .use(isAdmin)
-  .inputSchema(formSchemas.addScheduledCourse)
+  .inputSchema(formSchemas.upsertScheduledCourse)
   .action(async ({ parsedInput }) => {
-    console.log(parsedInput)
-    await prisma.scheduledCourses.create({
-      data: {
+    await prisma.scheduledCourses.upsert({
+      where: {
+        id: parsedInput.id || "",
+      },
+      update: {
+        activityId: parsedInput.activityId,
+        dayOfWeek: Number(parsedInput.dayOfWeek),
+        startTime: Number(parsedInput.startTime),
+        capacity: Number(parsedInput.capacity),
+      },
+      create: {
         activityId: parsedInput.activityId,
         dayOfWeek: Number(parsedInput.dayOfWeek),
         startTime: Number(parsedInput.startTime),

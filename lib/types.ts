@@ -33,7 +33,8 @@ export const formSchemas = {
         });
       }
     }),
-  addScheduledCourse: z.object({
+  upsertScheduledCourse: z.object({
+    id: z.string().optional(),
     activityId: z.string("L'ID de l'activité est invalide"),
     dayOfWeek: z
       .string()
@@ -86,8 +87,22 @@ export const formSchemas = {
   deleteActivity: z.object({
     id: z.string("L'ID de l'activité est invalide"),
   }),
+  deleteScheduledCourse: z.object({
+    id: z.string("L'ID de la session programmée est invalide"),
+  }),
   listMedias: z.object({
     nextContinuationToken: z.string().optional(),
   }),
-  addCourse: z.object({}),
+  getScheduledCourses: z.object({
+    dayOfWeek: z
+      .string()
+      .refine((value) => !isNaN(Number(value)))
+      .refine(
+        (value) => {
+          const num = Number(value);
+          return num >= 0 && num <= 6;
+        },
+        { message: "Le jour de la semaine est invalide" }
+      ),
+  }),
 };

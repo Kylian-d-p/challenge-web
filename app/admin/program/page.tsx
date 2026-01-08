@@ -18,11 +18,11 @@ export default async function ProgramPage() {
     },
   });
 
+  const scheduledCourses = await prisma.scheduledCourses.findMany();
+
   return (
-    <main className="max-w-4xl w-full mx-auto p-2 mt-4">
-      <div className="flex flex-col gap-2">
-        <Program activities={activities} />
-      </div>
+    <main className="max-w-3xl w-full mx-auto p-2 mt-4">
+      <Program activities={activities} scheduledCourses={scheduledCourses} />
     </main>
   );
 }

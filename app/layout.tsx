@@ -1,7 +1,7 @@
+import Header from "@/components/layout/header";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header} from "@/components/layout/header";
 
 export const metadata: Metadata = {
   title: "Fit&Flex",
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className="antialiased">
-        <Header/>
+        <Header />
         {children}
         <Toaster />
       </body>

@@ -33,4 +33,61 @@ export const formSchemas = {
         });
       }
     }),
+  addScheduledCourse: z.object({
+    activityId: z.string("L'ID de l'activité est invalide"),
+    dayOfWeek: z
+      .string()
+      .refine((value) => !isNaN(Number(value)))
+      .refine(
+        (value) => {
+          const num = Number(value);
+          return num >= 0 && num <= 6;
+        },
+        { message: "Le jour de la semaine est invalide" }
+      ),
+    startTime: z
+      .string()
+      .refine((value) => !isNaN(Number(value)))
+      .refine(
+        (value) => {
+          const num = Number(value);
+          return num >= 0 && num <= 86400;
+        },
+        { message: "L'heure de début est invalide" }
+      ),
+    capacity: z
+      .string()
+      .refine((value) => !isNaN(Number(value)), { message: "La capacité doit être un nombre valide" })
+      .refine(
+        (value) => {
+          const num = Number(value);
+          return num > 0 && num <= 1000;
+        },
+        { message: "La capacité doit être comprise entre 1 et 1000" }
+      ),
+  }),
+  upsertActivity: z.object({
+    id: z.string().optional(),
+    name: z.string().min(2, "Le nom doit contenir au moins 2 caractères").max(100, "Le nom ne peut pas contenir plus de 100 caractères"),
+    description: z
+      .string()
+      .min(10, "La description doit contenir au moins 10 caractères")
+      .max(1000, "La description ne peut pas contenir plus de 1000 caractères"),
+    imageUrl: z.url("L'URL de l'image est invalide"),
+    duration: z
+      .string()
+      .refine((value) => !isNaN(Number(value)), {
+        message: "La durée doit être un nombre valide",
+      })
+      .refine((value) => value === "" || (Number(value) > 0 && Number(value) <= 1440), {
+        message: "La durée doit être comprise entre 1 et 1440 minutes",
+      }),
+  }),
+  deleteActivity: z.object({
+    id: z.string("L'ID de l'activité est invalide"),
+  }),
+  listMedias: z.object({
+    nextContinuationToken: z.string().optional(),
+  }),
+  addCourse: z.object({}),
 };

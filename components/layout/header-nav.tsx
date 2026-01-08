@@ -60,11 +60,15 @@ export default function HeaderNav(props: { user?: { name: string } }) {
     [pathname, props.user]
   );
 
-  let content = (
+  return (
     <>
       <Sheet>
         <SheetTrigger asChild>
-          <Button className="md:hidden" variant={"ghost"} size={"icon"}>
+          <Button
+            className="md:hidden text-foreground"
+            variant={"ghost"}
+            size={"icon"}
+          >
             <MenuIcon className="size-5" />
           </Button>
         </SheetTrigger>
@@ -101,6 +105,4 @@ export default function HeaderNav(props: { user?: { name: string } }) {
       </nav>
     </>
   );
-
-  return content;
 }

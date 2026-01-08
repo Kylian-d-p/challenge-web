@@ -105,4 +105,8 @@ export const formSchemas = {
         { message: "Le jour de la semaine est invalide" }
       ),
   }),
+  updateProfile: z.object({
+    name: z.string().min(2, "Le nom doit contenir au moins 2 caractères").max(100, "Le nom ne peut pas contenir plus de 100 caractères"),
+    email: types.email,
+  }),
 };

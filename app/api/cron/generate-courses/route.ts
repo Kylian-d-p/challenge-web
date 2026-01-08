@@ -43,30 +43,13 @@ export async function GET(request: NextRequest) {
     const nextMonday = dayjs().add(1, "week").weekday(1).startOf("day");
 
     const coursesToCreate = [];
-    let skippedWeeks = 0;
+    let skippedCourses = 0;
 
     // Pour chaque semaine des 12 prochaines semaines
     for (let weekOffset = 0; weekOffset < 12; weekOffset++) {
       const weekStart = nextMonday.add(weekOffset, "week");
-      const weekEnd = weekStart.add(6, "days").endOf("day");
 
-      // Vérifier s'il existe au moins un cours dans cette semaine
-      const existingCoursesInWeek = await prisma.courses.findFirst({
-        where: {
-          startDateTime: {
-            gte: weekStart.toDate(),
-            lte: weekEnd.toDate(),
-          },
-        },
-      });
-
-      // Si au moins un cours existe dans la semaine, on skip cette semaine
-      if (existingCoursesInWeek) {
-        skippedWeeks++;
-        continue;
-      }
-
-      // Sinon, créer tous les cours planifiés pour cette semaine
+      // Créer tous les cours planifiés pour cette semaine
       for (const scheduled of scheduledCourses) {
         // dayOfWeek dans la DB: 1=Lundi, 2=Mardi, ..., 7=Dimanche
         // dayjs weekday: 0=Dimanche, 1=Lundi, ..., 6=Samedi
@@ -77,9 +60,24 @@ export async function GET(request: NextRequest) {
 
         const courseDate = weekStart.weekday(dayjsWeekday);
 
-        // Parser l'heure de début (format "HH:MM")
-        const [hours, minutes] = scheduled.startTime.split(":").map(Number);
+        const totalSeconds = scheduled.startTime;
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
         const startDateTime = courseDate.hour(hours).minute(minutes).second(0).millisecond(0).toDate();
+
+        // Vérifier si un cours existe déjà pour cette activité à cette date/heure
+        const existingCourse = await prisma.courses.findFirst({
+          where: {
+            activityId: scheduled.activityId,
+            startDateTime: startDateTime,
+          },
+        });
+
+        // Si le cours existe déjà, on le skip
+        if (existingCourse) {
+          skippedCourses++;
+          continue;
+        }
 
         coursesToCreate.push({
           activityId: scheduled.activityId,
@@ -104,7 +102,7 @@ export async function GET(request: NextRequest) {
       created: createdCount,
       scheduled: scheduledCourses.length,
       weeksGenerated: 12,
-      weeksSkipped: skippedWeeks,
+      coursesSkipped: skippedCourses,
       nextMondayStart: nextMonday.format("YYYY-MM-DD"),
     });
   } catch (error) {

@@ -5,28 +5,26 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { Button } from "../ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "../ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
 
 export default function HeaderNav(props: { user?: { name: string } }) {
   const pathname = usePathname();
-
-  // /admin/courses - Les cours
-  // /admin/customers - Les utilisateurs
 
   const navLinks = useMemo(
     () => [
       ...(pathname.startsWith("/admin")
         ? [
             {
-              title: "Dashboard",
-              href: "/admin/dashboard",
+              title: "Programme",
+              href: "/admin/program",
+            },
+            {
+              title: "Activités",
+              href: "/admin/activities",
+            },
+            {
+              title: "Réservations",
+              href: "/admin/reservations",
             },
             {
               title: "Utilisateurs",
@@ -39,8 +37,8 @@ export default function HeaderNav(props: { user?: { name: string } }) {
               href: "/planning",
             },
             {
-              title: "Reservation",
-              href: "/reservation",
+              title: "Reservations",
+              href: "/reservations",
             },
           ]),
       ...(props.user
@@ -64,11 +62,7 @@ export default function HeaderNav(props: { user?: { name: string } }) {
     <>
       <Sheet>
         <SheetTrigger asChild>
-          <Button
-            className="md:hidden text-foreground"
-            variant={"ghost"}
-            size={"icon"}
-          >
+          <Button className="md:hidden text-foreground" variant={"ghost"} size={"icon"}>
             <MenuIcon className="size-5" />
           </Button>
         </SheetTrigger>
@@ -80,10 +74,7 @@ export default function HeaderNav(props: { user?: { name: string } }) {
           <nav className="flex flex-col items-start gap-4 mt-4">
             {navLinks.map((link) => (
               <div key={link.href} className="border-b w-full">
-                <Button
-                  className="text-foreground hover:text-primary"
-                  variant={"link"}
-                >
+                <Button className="text-foreground hover:text-primary" variant={"link"}>
                   <Link href={link.href}>{link.title}</Link>
                 </Button>
               </div>
@@ -94,11 +85,7 @@ export default function HeaderNav(props: { user?: { name: string } }) {
 
       <nav className="hidden gap-6 md:flex">
         {navLinks.map((link) => (
-          <Button
-            key={link.href}
-            className="text-foreground hover:text-primary"
-            variant={"link"}
-          >
+          <Button key={link.href} className="text-foreground hover:text-primary" variant={"link"}>
             <Link href={link.href}>{link.title}</Link>
           </Button>
         ))}

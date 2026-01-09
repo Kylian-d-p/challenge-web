@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import { deleteSession, getSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 import ProfileForm from "./profile-form";
+import Link from "next/link";
 export default async function AccountPage() {
   const session = await getSession();
   const logout = async () => {
@@ -32,8 +33,17 @@ export default async function AccountPage() {
   return (
     <main>
       <ProfileForm user={user} />
-      <form action={logout} className="flex justify-center mt-6">
-        <Button variant={"destructive"} className="bg-red-600 hover:bg-red-700">
+      {
+        session.user.role === "ADMIN" && (
+          <Link href="/admin/program" className="flex justify-center mb-4 w-full max-w-2xl mx-auto px-6">
+            <Button variant={"secondary"} className="w-full">
+              Accéder au panneau d&apos;administration
+            </Button>
+          </Link>
+        )
+      }
+      <form action={logout} className="flex justify-center mb-4 w-full max-w-2xl mx-auto px-6">
+        <Button variant={"outline"} className="w-full hover:bg-destructive hover:text-white">
           Déconnexion
         </Button>
       </form>

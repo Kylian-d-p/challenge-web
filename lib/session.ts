@@ -1,6 +1,9 @@
 import prisma from "@/lib/prisma";
 import { sha256 } from "@oslojs/crypto/sha2";
-import { encodeBase32LowerCaseNoPadding, encodeHexLowerCase } from "@oslojs/encoding";
+import {
+  encodeBase32LowerCaseNoPadding,
+  encodeHexLowerCase,
+} from "@oslojs/encoding";
 
 import type { Sessions, Users } from "@/lib/generated/prisma/client";
 import { cookies } from "next/headers";
@@ -23,7 +26,9 @@ export async function createSession(userId: string): Promise<Sessions> {
   return session;
 }
 
-async function validateSessionToken(token: string): Promise<SessionValidationResult> {
+async function validateSessionToken(
+  token: string
+): Promise<SessionValidationResult> {
   const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
   const result = await prisma.sessions.findUnique({
     where: {
@@ -61,7 +66,7 @@ export async function deleteSession(): Promise<void> {
   if (token === null) {
     return;
   }
-  await invalidateSession(token);
+  await invalidateSession(encodeHexLowerCase(sha256(new TextEncoder().encode(token))));
   await deleteSessionTokenCookie();
 }
 
@@ -87,7 +92,10 @@ export const getSession = async (): Promise<SessionValidationResult> => {
   return result;
 };
 
-async function setSessionTokenCookie(token: string, expiresAt: Date): Promise<void> {
+async function setSessionTokenCookie(
+  token: string,
+  expiresAt: Date
+): Promise<void> {
   const cookieStore = await cookies();
   cookieStore.set("session", token, {
     httpOnly: true,

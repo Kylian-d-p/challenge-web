@@ -5,7 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { Button } from "../ui/button";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
 
 export default function HeaderNav(props: { user?: { name: string } }) {
   const pathname = usePathname();
@@ -44,7 +51,7 @@ export default function HeaderNav(props: { user?: { name: string } }) {
       ...(props.user
         ? [
             {
-              title: "Mon compte",
+              title: props.user.name,
               href: "/account",
             },
           ]
@@ -62,7 +69,11 @@ export default function HeaderNav(props: { user?: { name: string } }) {
     <>
       <Sheet>
         <SheetTrigger asChild>
-          <Button className="md:hidden text-foreground" variant={"ghost"} size={"icon"}>
+          <Button
+            className="md:hidden text-foreground"
+            variant={"ghost"}
+            size={"icon"}
+          >
             <MenuIcon className="size-5" />
           </Button>
         </SheetTrigger>
@@ -74,7 +85,10 @@ export default function HeaderNav(props: { user?: { name: string } }) {
           <nav className="flex flex-col items-start gap-4 mt-4">
             {navLinks.map((link) => (
               <div key={link.href} className="border-b w-full">
-                <Button className="text-foreground hover:text-primary" variant={"link"}>
+                <Button
+                  className="text-foreground hover:text-primary"
+                  variant={"link"}
+                >
                   <Link href={link.href}>{link.title}</Link>
                 </Button>
               </div>
@@ -85,7 +99,11 @@ export default function HeaderNav(props: { user?: { name: string } }) {
 
       <nav className="hidden gap-6 md:flex">
         {navLinks.map((link) => (
-          <Button key={link.href} className="text-foreground hover:text-primary" variant={"link"}>
+          <Button
+            key={link.href}
+            className="text-foreground hover:text-primary"
+            variant={"link"}
+          >
             <Link href={link.href}>{link.title}</Link>
           </Button>
         ))}

@@ -28,7 +28,6 @@ export default function ImageSelector(
     setLoading(true);
     const res = await listImagesAction({ nextContinuationToken });
     setLoading(false);
-    console.log(res);
     if (!res.data) {
       toast.error("Erreur lors de la récupération des médias");
       setHasMore(false);

@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Header />
         {children}
+        <Footer />
         <Toaster />
       </body>
     </html>

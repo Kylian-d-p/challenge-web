@@ -139,9 +139,7 @@ export default function ReservationsClient({ courses }: { courses: Course[] }) {
                     className="group relative cursor-pointer bg-card border-2 rounded-xl overflow-hidden transition-all hover:shadow-lg hover:border-primary/50 hover:scale-[1.02]"
                   >
                     {/* Image de fond */}
-                    <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity">
-                      <Image src={course.activity.imageUrl} alt={course.activity.name} width={200} height={200} />
-                    </div>
+                      <Image src={course.activity.imageUrl} alt={course.activity.name} width={200} height={200} className="absolute top-0 left-0 w-full h-full object-cover opacity-5 group-hover:opacity-10 transition-opacity"/>
 
                     {/* Contenu */}
                     <div className="relative p-6 space-y-4">

@@ -26,9 +26,15 @@ export default async function PlanningPage() {
     },
   });
 
+  // Transformer les données pour le client
+  const coursesWithUserBooking = courses.map((course) => ({
+    ...course,
+    userBooking: session && "bookings" in course ? course.bookings.find((booking) => booking.userId === session.user.id) || null : null,
+  }));
+
   return (
     <div className="container mx-auto py-8">
-      <PlanningClient courses={courses} isAuthenticated={!!session} />
+      <PlanningClient courses={coursesWithUserBooking} isAuthenticated={!!session} />
     </div>
   );
 }

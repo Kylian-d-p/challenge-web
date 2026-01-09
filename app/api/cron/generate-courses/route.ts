@@ -51,12 +51,10 @@ export async function GET(request: NextRequest) {
 
       // Créer tous les cours planifiés pour cette semaine
       for (const scheduled of scheduledCourses) {
-        // dayOfWeek dans la DB: 1=Lundi, 2=Mardi, ..., 7=Dimanche
+        // dayOfWeek dans la DB: 0=Lundi, 1=Mardi, ..., 6=Dimanche
         // dayjs weekday: 0=Dimanche, 1=Lundi, ..., 6=Samedi
-        let dayjsWeekday = scheduled.dayOfWeek;
-        if (dayjsWeekday === 7) {
-          dayjsWeekday = 0; // Dimanche
-        }
+        // Conversion: ajouter 1 et utiliser modulo 7 pour transformer Dimanche (6) en 0
+        const dayjsWeekday = (scheduled.dayOfWeek + 1) % 7;
 
         const courseDate = weekStart.weekday(dayjsWeekday);
 
